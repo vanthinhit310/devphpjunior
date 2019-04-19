@@ -1,0 +1,15 @@
+body{
+    overflow-x: hidden;
+    .content{
+        margin-top: 121px;
+        @media(max-width:767px){
+            margin-top: 80px;
+        }
+    }
+    .container{
+        @media(min-width:1280px){
+            width:1170px;
+            position:relative;
+        }
+    }
+}
