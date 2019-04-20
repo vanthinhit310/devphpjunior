@@ -14,7 +14,7 @@ class CreatePagesTable extends Migration
     public function up()
     {
         // Create table for storing roles
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('about', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author_id');
             $table->string('title');
@@ -36,6 +36,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('pages');
+        Schema::drop('about');
     }
 }

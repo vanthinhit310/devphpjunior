@@ -3,10 +3,10 @@
 
 @import 'variables';
 
-@import 'home/header';
-
 @import 'reset';
 
-@import 'home/down-app/index';
-
 @import 'general';
+
+@import "plugin/capcha";
+
+@import "loading";

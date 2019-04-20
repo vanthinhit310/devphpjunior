@@ -1,0 +1,11 @@
+#cap-cha-contact{
+    padding: 10px;
+    margin-left: 32%;
+}
+
+@media (max-width: 767px)and(min-width: 320px) {
+    #cap-cha-contact{
+        width: auto;
+        transform: translateX(-100px);
+    }
+}

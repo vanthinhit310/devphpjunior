@@ -17,10 +17,18 @@ Route::group([
     'as'=> 'app.'
 ],function(){
     Route::get('/', 'HomeController@getIndex')->name('home');
+    Route::get('/about-page', 'PagesController@getAboutPages')->name('about');
+    Route::get('/blog-post', 'PagesController@getBlogPages')->name('blog');
+    Route::get('/contact-us', 'PagesController@getContactPages')->name('contacts');
+    Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
 });
 
+Route::group([
+    'as'=> 'process.'
+],function(){
+    Route::post('process-feedback','FeedbackController@processingFeedback')->name('sendFeedback');
+});
 Auth::routes();
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
