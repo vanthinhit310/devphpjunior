@@ -1,5 +1,12 @@
 <section class="about-wrapper">
 
+    <div class="beau-page-title beau-page-inner">
+        <div class="title-wrapper">
+            <div class="title">
+                About Us </div>
+            <div class="subtitle"><em>We Are Beau - Creative Geeks</em></div>
+        </div>
+    </div>
 
     <div id="main-container">
         <div class="page-content container page-page">

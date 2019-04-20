@@ -1917,11 +1917,7 @@ Version: 1.0
 Last Change: 2015-07-30
 Primary Use: Beau Footers
 -------------------------------------------------------------------*/
-footer#beau-footer {
-  padding-top: 30px;
-}
 footer#beau-footer #footer-copyright-bar {
-  padding: 60px 0 100px 0;
   font-size: 12px;
   text-align: center;
 }

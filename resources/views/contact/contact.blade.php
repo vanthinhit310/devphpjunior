@@ -142,7 +142,7 @@
                                                         type="submit">SUBMIT
                                                 </button>
                                             </div>
-                                            <span id="msg-success"></span>
+                                            <div style="display: none" id="msg-success"><img src="{{asset('images/loading.svg')}}" alt="Loading"><p>Sending...</p></div>
                                     </div>
                                 </form>
                             </div>

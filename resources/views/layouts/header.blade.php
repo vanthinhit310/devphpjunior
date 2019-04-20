@@ -41,8 +41,8 @@
             </div>
 
             <div id="logo-header">
-                <a class="logo" href="#">
-                    <img src="images/logo.png" alt="Logo" />
+                <a class="logo" href="{{route('app.home')}}">
+                    <img src="{{asset('images/logo.svg')}}" alt="Logo" />
                 </a>
             </div>
 

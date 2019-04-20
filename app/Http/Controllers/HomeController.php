@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Service\SliderService;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,9 +12,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getIndex()
+    public function getIndex(SliderService $slider)
     {
         $this->data['titlePage'] = 'Home';
+        $this->data['sliders'] = $slider->getSliders();
         return view('index', $this->data);
     }
 }
