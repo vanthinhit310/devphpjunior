@@ -54,8 +54,8 @@ h6,.h6 {
 }
 .beau-page-inner {
     height: 400px;
-	background-image:url('../images/breadcrumbs-bg.jpg');
-	background-size:cover;
+	/*background-image:url('../images/breadcrumbs-bg.jpg');*/
+	/*background-size:cover;*/
 }
 
 .page-content {

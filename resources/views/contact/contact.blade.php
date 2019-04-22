@@ -1,19 +1,8 @@
 <section class="contact-wrapper">
-
-
-    <div class="beau-page-title beau-page-inner">
-        <div class="title-wrapper">
-            <div class="title">
-                Contact
-            </div>
-            <div class="subtitle"><em>Connect with Us</em></div>
-        </div>
-    </div>
-
     <div id="main-container">
         <div class="page-content container page-page">
             <section class="beau-mainbar">
-                <h2 class="hidden">Page - Connect With Us</h2>
+                <blockquote>{{$about->contact_qoutes}}</blockquote>
                 <article id="post-2221" class="post-2221 page type-page status-publish hentry">
                     <div style="background-attachment: scroll !important;" class="vc_row wpb_row vc_row-fluid">
                         <div class="vc_col-sm-12 wpb_column vc_column_container">
@@ -35,7 +24,7 @@
                                                 <div class='icon'><i class='featured-icon fa fa-twitter'></i></div>
                                                 <div class='content'>CALL US
                                                     <br/>
-                                                    <a href="#">+1 (234) 5678</a></div>
+                                                    <a href="#">{{$about->phone}}</a></div>
                                             </div>
                                             <div class="vc_empty_space" style="height: 24px"><span
                                                     class="vc_empty_space_inner"></span></div>
@@ -47,7 +36,7 @@
                                                  id='beau-icon-box-3'>
                                                 <div class='icon'><i class='featured-icon fa fa-home'></i></div>
                                                 <div class='content'>VISIT US
-                                                    <br/> A-45/2, Signature Towers, New York City
+                                                    <br/> {{$about->address}}
                                                 </div>
                                             </div>
                                             <div class="vc_empty_space" style="height: 24px"><span
@@ -61,7 +50,7 @@
                                                 <div class='icon'><i class='featured-icon fa fa-envelope'></i></div>
                                                 <div class='content'>Email Us
                                                     <br/>
-                                                    <a href="mailto:support@theme-paradise.com">support@theme-paradise.com</a>
+                                                    <a href="mailto:support@theme-paradise.com">{{$about->email}}</a>
                                                 </div>
                                             </div>
                                             <div class="vc_empty_space" style="height: 24px"><span
@@ -142,8 +131,9 @@
                                                         type="submit">SUBMIT
                                                 </button>
                                             </div>
-                                            <div style="display: none" id="msg-success"><img src="{{asset('images/loading.svg')}}" alt="Loading"><p>Sending...</p></div>
-                                    </div>
+                                            <div id="msg-success" style="display: none"><img class="loadingAnimate" src="{{asset('images/loading.svg')}}" alt="Loading"><p>Sending...</p></div>
+
+                                        </div>
                                 </form>
                             </div>
                         </div>

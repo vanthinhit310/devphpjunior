@@ -693,7 +693,7 @@ body.responsive #mobile-menu-container ul.menu > li.menu-item#mobile-nav-search-
   background-size: cover;
 }
 .beau-page-title .title-wrapper {
-  top: 50%;
+  top: 85%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
   -moz-transform: translateX(-50%) translateY(-50%);

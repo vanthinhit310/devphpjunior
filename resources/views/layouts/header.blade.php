@@ -54,15 +54,16 @@
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="{{route('app.blog')}}">Blog.<span class="caret"></span></a>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="javascript:;">Project.<span class="caret"></span></a>
                             <ul class="sub-menu">
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
-                                <li class="menu-item"><a href="javascript"><span class='resp-nav-gap'></span>Project</a></li>
+                                <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project</a></li>
+                                <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project <i class="fa fa-arrow-circle-o-right"></i></a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="javascript:;">Project 2</a></li>
+                                        <li class="menu-item"><a href="javascript:;">Project 2</a></li>
+                                        <li class="menu-item"><a href="javascript:;">Project 2</a></li>
+                                        <li class="menu-item"><a href="javascript:;">Project 2</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
                         </li>
                         <li class="menu-item"><a href="{{route('app.contacts')}}">Contact.</a></li>
                     </ul>
