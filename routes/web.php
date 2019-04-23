@@ -20,6 +20,7 @@ Route::group([
     Route::get('/about-page', 'PagesController@getAboutPages')->name('about');
     Route::get('/blog-post', 'PagesController@getBlogPages')->name('blog');
     Route::get('/contact-us', 'PagesController@getContactPages')->name('contacts');
+    Route::get('/post/{category?}/{slug?}', 'PagesController@getPostPages')->name('post');
     Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
 });
 

@@ -3,12 +3,18 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use CyrildeWit\EloquentViewable\Viewable;
+use CyrildeWit\EloquentViewable\Contracts\Viewable as ViewableContract;
 
-class BlogPost extends Model
+class BlogPost extends Model implements ViewableContract
 {
     //
+    use Viewable;
     protected $table = 'blog_posts';
     protected $fillable = ['title','author','view','theme','description','image','key_work','slug','ordering','content','created_at','updated_at'];
 
-
+    public function getPostCategory()
+    {
+        return $this->belongsTo('App\Model\PostCategory','theme','theme');
+    }
 }

@@ -31,4 +31,20 @@ class PagesController extends Controller
         return view('contact.index', $this->data);
     }
 
+    public function getPostPages(PostService $postService, Request $request)
+    {
+        $slug = $request->slug;
+        $post = $postService->getPostDetails($slug);
+//
+//        views($post)
+//            ->delayInSession(10)
+//            ->record();
+//        $views = views($post)
+//            ->count();
+        $this->data['post'] = $postService->getPostDetails($slug);
+        $this->data['lastedPosts'] = $postService->getLastedPost();
+        $this->data['titlePage'] = 'Post';
+        return view('post-details.index', $this->data, compact('post'));
+    }
+
 }

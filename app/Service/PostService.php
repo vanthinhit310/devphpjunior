@@ -17,4 +17,16 @@ class PostService
         $posts = BlogPost::orderBy('created_at', 'ASC')->get();
         return $posts;
     }
+
+    public function getPostDetails($slug)
+    {
+        $post = BlogPost::where('slug',$slug)->with('getPostCategory')->first();
+        return $post;
+    }
+
+    public function getLastedPost()
+    {
+        $lastPost = BlogPost::orderBy('created_at', 'DESC')->take(6)->get();
+        return $lastPost;
+    }
 }

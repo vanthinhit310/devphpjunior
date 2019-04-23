@@ -15,10 +15,10 @@
                                             @foreach($posts as $post)
                                             <article id="post-92" class="beau-post-in-list post-92 post type-post status-publish format-standard has-post-thumbnail hentry category-branding category-photography category-print tag-awesome tag-photography">
                                                 <div class="beau-article-featured-wrapper">
-                                                    <img width="1920" height="900" src="{{$post->image}}" class="attachment-post-thumbnail wp-post-image" alt="{{$post->title}}" /> </div>
+                                                    <a href="{{route('app.post')}}/{{$post->getPostCategory->slug}}/{{$post->slug}}"><img width="1920" height="900" src="{{$post->image}}" class="attachment-post-thumbnail wp-post-image" alt="{{$post->title}}" /></a> </div>
                                                 <div class="beau-article-content">
-                                                    <h2 class="beau-article-title"><a href="#"><em>{{$post->title}}</em></a></h2>
-                                                    <div class="beau-article-author">By <a href="#/" title="Posts by beauwp" rel="author">{{$post->author}}</a></div>
+                                                    <h2 class="beau-article-title"><a href="{{route('app.post')}}/{{$post->getPostCategory->slug}}/{{$post->slug}}"><em>{{$post->title}}</em></a></h2>
+                                                    <div class="beau-article-author">By <a href="javascript:;" title="Posts by beauwp" rel="author">{{$post->author}}</a></div>
                                                     <div class="beau-article-excerpt">
                                                         <p>{{$post->description}}</p>
                                                         <div class="excerpt-more-wrapper"><a class="beau-button" href="#">Read More</a></div>

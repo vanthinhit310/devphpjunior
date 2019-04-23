@@ -167,6 +167,7 @@ return [
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
         TCG\Voyager\VoyagerServiceProvider::class,
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         /*
          * Application Service Providers...
          */
