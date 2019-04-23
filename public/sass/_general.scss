@@ -1,14 +1,53 @@
-body{
+body {
     overflow-x: hidden;
-    .content{
-        @media(max-width:767px){
+    .content {
+        @media(max-width: 767px) {
             margin-top: 80px;
         }
     }
-    .container{
-        @media(min-width:1280px){
-            width:1170px;
-            position:relative;
+    .container {
+        @media(min-width: 1280px) {
+            width: 1170px;
+            position: relative;
         }
+    }
+}
+.text-limit {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+a {
+    text-decoration: none;
+}
+a.active {
+    text-decoration: none;
+    color: #fff;
+    background-color: black;
+    &:hover {
+        background-color: #9561e2;
+    }
+}
+article#post-1731 {
+    position: relative;
+}
+ul.pagination {
+    position: absolute;
+    left: 40%;
+    bottom: 35px;
+    li {
+        float: left;
+        margin: 20px;
+        a {
+            text-decoration: none;
+            color: #6610f2;
+        }
+        &:hover {
+            background-color: #9561e2;
+            border-radius: 4px;
+        }
+
     }
 }

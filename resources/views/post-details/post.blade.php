@@ -48,10 +48,20 @@
                     @foreach($lastedPosts as $lastedPost)
                     <ul>
                         <li>
-                            <a href="{{route('app.post')}}/{{$lastedPost->getPostCategory->slug}}/{{$lastedPost->slug}}">{{$lastedPost->title}}</a>
+                            <a class="text-limit" href="{{route('app.post')}}/{{$lastedPost->getPostCategory->slug}}/{{$lastedPost->slug}}">{{$lastedPost->title}}</a>
                         </li>
                     </ul>
                         @endforeach
+                </div>
+                <div id="recent-posts-2" class="beau-main-sidebar clearfix widget_recent_entries text-justify">
+                    <h3>Top views</h3>
+                    @foreach($topViews as $topView)
+                        <ul>
+                            <li>
+                                <a class="text-limit" href="{{route('app.post')}}/{{$topView->getPostCategory->slug}}/{{$topView->slug}}">{{$topView->title}}</a>
+                            </li>
+                        </ul>
+                    @endforeach
                 </div>
                 <div id="tag_cloud-2" class="beau-main-sidebar clearfix widget_tag_cloud">
                     <h3>Tags</h3>
@@ -66,8 +76,9 @@
                 <div id="categories-2" class="beau-main-sidebar clearfix widget_categories">
                     <h3>Categories</h3>
                     <ul>
-                        <li class="cat-item cat-item-18"><a href="#">{{$post->getPostCategory->theme}}</a>
-                        </li>
+                    @foreach($themePosts as $themePost)
+                        <li class="cat-item cat-item-18"><a  @if($post->getPostCategory->theme == $themePost->theme) class="active" @endif href="#">{{$themePost->theme}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </aside>

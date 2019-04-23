@@ -3082,7 +3082,7 @@ dd {
 #main-container .page-page ul > li,
 #main-container .page-single ul > li,
 #main-container .beau_portfolio ul > li {
-  list-style: circle;
+  /*list-style: circle;*/
 }
 #main-container .page-page ol > li,
 #main-container .page-single ol > li,

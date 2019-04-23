@@ -35,16 +35,13 @@ class PagesController extends Controller
     {
         $slug = $request->slug;
         $post = $postService->getPostDetails($slug);
-//
-//        views($post)
-//            ->delayInSession(10)
-//            ->record();
-//        $views = views($post)
-//            ->count();
+        $postService->updateViewOfPost($slug);
         $this->data['post'] = $postService->getPostDetails($slug);
         $this->data['lastedPosts'] = $postService->getLastedPost();
-        $this->data['titlePage'] = 'Post';
-        return view('post-details.index', $this->data, compact('post'));
+        $this->data['topViews'] = $postService->getListTopViews();
+        $this->data['themePosts'] = $postService->getThemeOfPost();
+        $this->data['titlePage'] = $post->title;
+        return view('post-details.index', $this->data);
     }
 
 }
