@@ -44,4 +44,10 @@ class PagesController extends Controller
         return view('post-details.index', $this->data);
     }
 
+    public function getMaiThanhPages()
+    {
+        $this->data['titlePage'] = 'Ngắm vợ yêu';
+        return view('practices.maithanh.index', $this->data);
+    }
+
 }

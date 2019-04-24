@@ -23,6 +23,11 @@ Route::group([
     Route::get('/post/{category?}/{slug?}', 'PagesController@getPostPages')->name('post');
     Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
 });
+Route::group([
+    'as'=> 'practice.'
+],function(){
+    Route::get('/mai-thanh', 'PagesController@getMaiThanhPages')->name('maithanh');
+});
 
 Route::group([
     'as'=> 'process.'

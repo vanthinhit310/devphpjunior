@@ -8,7 +8,7 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css?ver='.$time)}}">
-{{--<link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">--}}
+<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome-all.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}"/>
@@ -18,7 +18,6 @@
 <!-- Google Tag Manager -->
 
 {{--Teamplate CSS--}}
-
 <link rel='stylesheet' href='{{asset('css/dashicons.min.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('css/jquery-ui-dialog.min.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('js/plugins/LayerSlider/static/css/layerslider.css')}}' type='text/css' media='all'/>

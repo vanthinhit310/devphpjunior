@@ -71,29 +71,103 @@ var Loading = {
         }
     },
     showLoadingSVG: function () {
-                var e = document.getElementById('msg-success');
-                if (e.style.display == 'block') {
-                    console.log(e.style.display == 'block');
-                    return false;
-                    e.style.display = 'none';
-                }
-                else {
-                    e.style.display = 'block';
-                }
+        var e = document.getElementById('msg-success');
+        if (e.style.display === 'block') {
+            e.style.display = 'none';
+        }
+        else {
+            e.style.display = 'block';
+        }
+    },
+    showLoadingSVGReg: function () {
+        var e = document.getElementById('msg-success-reg');
+        if (e.style.display === 'block') {
+            e.style.display = 'none';
+        }
+        else {
+            e.style.display = 'block';
+        }
     }
 
 };
 var Menu = {
     activeMenu: function () {
         if (jQuery('#main-menu-wrapper').length) {
-            $('ul.menu li a').each(function () {
+            jQuery('ul.menu li a').each(function () {
                 var isActive = this.pathname === location.pathname;
-                $(this).parent().toggleClass('current-menu-item', isActive);
+                jQuery(this).parent().toggleClass('current-menu-item', isActive);
             });
         }
     }
 };
-
+var Form = {
+    validateRegisterForm: function () {
+        if (jQuery('.submit-form').length) {
+            jQuery('.submit-form').on('click', function () {
+                var checkFrom = true;
+                var email = jQuery('#email').val();
+                if (jQuery('#username').val() === '' || jQuery('#username').val() === 'undefined') {
+                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('.username-reg').css('border', 'solid 1px red');
+                    checkFrom = false;
+                }
+                if (jQuery('#email').val() === '' || jQuery('#email').val() === 'undefined') {
+                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('.email-reg').css('border', 'solid 1px red');
+                    checkFrom = false;
+                }
+                if (!(Form.validateEmail(email))) {
+                    jQuery('#errorReg').html('Email has wrong format. Please check again.');
+                    jQuery('.email-reg').css('border', 'solid 1px red');
+                    checkFrom = false;
+                }
+                if (jQuery('#password').val() === '' || jQuery('#password').val() === 'undefined') {
+                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('.password-reg').css('border', 'solid 1px red');
+                    checkFrom = false;
+                }
+                if (jQuery('#confirm').val() === '' || jQuery('#confirm').val() === 'undefined') {
+                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('.confirm-reg').css('border', 'solid 1px red');
+                    checkFrom = false;
+                }
+                if (jQuery('#password').val() !== jQuery('#confirm').val()) {
+                    jQuery('#errorReg').html('Password not match. Please check again.');
+                    jQuery('.confirm-reg').css('border', 'solid 1px red');
+                    jQuery('.password-reg').css('border', 'solid 1px red');
+                    checkFrom = false;
+                }
+                if (checkFrom === true) {
+                    Loading.showLoadingSVGReg();
+                    jQuery('#reg-form').submit();
+                }
+            });
+            jQuery('#reg-form').on('keyup', function () {
+                if (jQuery('#username').val() !== '') {
+                    jQuery('#errorReg').html('');
+                    jQuery('.username-reg').css('border', 'solid 2px green');
+                }
+                if (jQuery('#email').val() !== '') {
+                    jQuery('#errorReg').html('');
+                    jQuery('.email-reg').css('border', 'solid 2px green');
+                }
+                if (jQuery('#password').val() !== '') {
+                    jQuery('#errorReg').html('');
+                    jQuery('.password-reg').css('border', 'solid 2px green');
+                }
+                if (jQuery('#confirm').val() !== '') {
+                    jQuery('#errorReg').html('');
+                    jQuery('.confirm-reg').css('border', 'solid 2px green');
+                }
+                return true;
+            });
+        }
+    },
+    validateEmail: function (email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+};
 window.onload = function () {
 
 };
@@ -102,7 +176,9 @@ jQuery(document).ready(function () {
     ValidateFrom.contactForm();
 
     Loading.hideLoading();
-    // Loading.showLoadingSVG();
 
     Menu.activeMenu();
+
+    Form.validateRegisterForm();
+
 });

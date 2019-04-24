@@ -476,9 +476,10 @@ header#beau-header nav div.main-menu ul.menu > li.menu-item:hover > ul.sub-menu 
   -moz-transition: margin-top 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0s;
   -o-transition: margin-top 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0s;
   transition: margin-top 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s ease-in-out 0s;
-  margin-top: 0px;
+  margin-top: -15px;
   visibility: visible;
   opacity: 1;
+    transform: translateX(-30%);
 }
 header#beau-header nav div.main-menu ul.menu:after {
   content: '';

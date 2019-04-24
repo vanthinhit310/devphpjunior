@@ -36,12 +36,6 @@
                                         <div class='item'><img src='{{Voyager::image($favorite->logo)}}'
                                                                alt='{{$favorite->name}}'></div>
                                         @endforeach
-                                        {{--<div class='item'><img src='{{asset('upload/client-3.png')}}'--}}
-                                                               {{--alt='Carousel Image'></div>--}}
-                                        {{--<div class='item'><img src='{{asset('upload/client-2.png')}}'--}}
-                                                               {{--alt='Carousel Image'></div>--}}
-                                        {{--<div class='item'><img src='{{asset('upload/client-1.png')}}'--}}
-                                                               {{--alt='Carousel Image'></div>--}}
                                     </div>
                                 </div>
 
