@@ -15,6 +15,8 @@
 <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/aos.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/animate.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/main.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/util.css')}}"/>
 <!-- Google Tag Manager -->
 
 {{--Teamplate CSS--}}
@@ -34,3 +36,5 @@
 <link rel='stylesheet' href='{{asset('js/plugins/js_composer/assets/css/js_composer.min.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('css/staticcss.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('css/masterslider.main.css')}}' type='text/css' media='all'/>
+<link rel="stylesheet" type="text/css" href="{{asset('vendor/select2/select2.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('vendor/animate/animate.css')}}">

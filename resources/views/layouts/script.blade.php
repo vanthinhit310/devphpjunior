@@ -15,6 +15,7 @@
 <script src="{{asset('js/wow.min.js')}}"></script>
 <script src="{{asset('js/common.js?ver='.$time)}}"></script>
 <script src="{{asset('js/parallax.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>
 
 {{--SCRIPT TEMPLATE--}}
 <script type='text/javascript' src='{{asset('js/jquery/jquery-migrate.min.js')}}'></script>
@@ -89,3 +90,9 @@
 <script type='text/javascript' src='{{asset('js/plugins.js')}}'></script>
 <script type='text/javascript' src='{{asset('js/theme.js')}}'></script>
 <script type='text/javascript' src='{{asset('js/masterslider.min.js')}}'></script>
+<script src="{{asset('js/vendor/select2/select2.min.js')}}"></script>
+<script src="{{asset('js/vendor/countdowntime/moment.min.js')}}"></script>
+<script src="{{asset('js/vendor/countdowntime/moment-timezone-with-data.min.js')}}"></script>
+<script src="{{asset('js/vendor/countdowntime/countdowntime.js')}}"></script>
+<script src="{{asset('js/vendor/tilt/tilt.jquery.min.js')}}"></script>
+<script src="{{asset('js/main.js')}}"></script>

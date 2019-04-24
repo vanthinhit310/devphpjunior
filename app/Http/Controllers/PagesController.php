@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service\AboutService;
 use App\Service\FavoriteService;
+use App\Service\GareliesServie;
 use App\Service\PostService;
 use Illuminate\Http\Request;
 
@@ -44,9 +45,10 @@ class PagesController extends Controller
         return view('post-details.index', $this->data);
     }
 
-    public function getMaiThanhPages()
+    public function getMaiThanhPages(GareliesServie $gareliesServie)
     {
         $this->data['titlePage'] = 'Ngắm vợ yêu';
+        $this->data['garellies'] = $gareliesServie->getGarellies();
         return view('practices.maithanh.index', $this->data);
     }
 
