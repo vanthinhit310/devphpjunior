@@ -24,27 +24,24 @@
                                                     <div class="beau-article-content">
                                                         <h2 class="beau-article-title"><a
                                                                 href="{{route('app.post')}}/{{$post->getPostCategory->slug}}/{{$post->slug}}"><em
-                                                                    class="text-limit">{{$post->title}}</em></a></h2>
-                                                        <div class="beau-article-author">By <a href="javascript:;"
+                                                                    class="text-limit"><i class="fal fa-arrow-alt-right"></i> {{$post->title}}</em></a></h2>
+                                                        <div class="beau-article-author"><i class="fal fa-portrait"></i> By <a href="javascript:;"
                                                                                                title="Posts by beauwp"
                                                                                                rel="author">{{$post->author}}</a>
                                                         </div>
                                                         <div class="beau-article-excerpt">
                                                             <p class="text-limit">{{$post->description}}</p>
-                                                            <a href="{{route('app.post')}}/{{$post->getPostCategory->slug}}/{{$post->slug}}">[Read
-                                                                more ...]</a>
-                                                            <div class="excerpt-more-wrapper"><a class="beau-button"
-                                                                                                 href="#">Read More</a>
-                                                            </div>
+                                                            <a href="{{route('app.post')}}/{{$post->getPostCategory->slug}}/{{$post->slug}}">Read
+                                                                more <i class="fal fa-angle-double-right"></i></a>
                                                         </div>
                                                         <div class="beau-article-meta-wrapper">
                                                             <a class="beau-article-meta-date" href="#">
-                                                                <span class="time-month">{{$post->created_at}}</span>
+                                                                <span class="time-month"><i class="fal fa-calendar-alt"></i> {{$post->created_at}}</span>
                                                             </a>
                                                             |
                                                             <div class="beau-article-meta-tags">
-                                                                <span>{{$post->view}} views</span> | <a
-                                                                    href="#">{{$post->theme}}</a></div>
+                                                                <span><i class="fal fa-eye"></i> {{$post->view}} views</span> | <a
+                                                                    href="#"><i class="far fa-clipboard-list-check"></i> {{$post->theme}}</a></div>
                                                         </div>
                                                     </div>
                                                 </article>

@@ -34,7 +34,7 @@
                     We have been in love for
                 </h3>
 
-                <div class="flex-w flex-c cd100 respon2">
+                <div id="countup1" class="flex-w flex-c cd100 respon2">
                     <div class="flex-col-c wsize1 m-b-30">
                         <span id="day" class="l1-txt2 p-b-37 days"></span>
                         <span class="m1-txt2 p-r-20">Days</span>

@@ -1,36 +1,27 @@
-<section class="modal-wrapper">
-    <div class="modal fade" id="register-form" role="dialog">
+<section class="modal-wrapper-log">
+    <div class="modal fade" id="sign-in-form" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form id="reg-form" action="" method="post">
+                <form id="log-form" action="" method="post">
                     @csrf
                     <div class="modal-header">
-                        <h2 class="modal-title text-center">Register user</h2>
+                        <h2 class="modal-title text-center">Sign in</h2>
                     </div>
                     <div class="modal-body">
-                        <div class="field username-reg">
-                            <i class="fas fa-user-tag"></i>
-                            <input style="transform: translateX(-4px);" type="text" name="username" id="username" placeholder="Your name"/>
+                        <div class="field email-log-gin">
+                            <i class="fal fa-envelope"></i>
+                            <input type="text" name="email" id="log-email" placeholder="Email"/>
                         </div>
-                        <div class="field email-reg">
-                            <i class="fas fa-envelope"></i>
-                            <input type="text" name="email" id="email" placeholder="Email"/>
+                        <div class="field password-log-gin">
+                            <i class="fal fa-lock-alt"></i>
+                            <input type="password" name="password" id="log-password" placeholder="Password"/>
                         </div>
-                        <div class="field password-reg">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" name="password" id="password" placeholder="Password"/>
-                        </div>
-                        <div class="field confirm-reg">
-                            <i class="fas fa-key"></i>
-                            <input style="transform: translateX(-2px);" type="password" name="confirm" id="confirm" placeholder="Confirm password"/>
-                        </div>
-
                     </div>
-                    <div class="error"><span id="errorReg" class="text-danger"></span></div>
+                    <div class="error"><span id="errorLog" class="text-danger"></span></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default submit-form"> <i class="far fa-paper-plane"></i> Registers</button>
-                        <div id="msg-success-reg" style="display: none"><img class="loadingAnimate" src="{{asset('images/loading.svg')}}" alt="Loading"><p>Sending...</p></div>
+                        <button type="button" class="btn btn-default submit-form-login"> <i class="fal fa-sign-in"></i> Sign in</button>
+                        <div id="msg-success-login" style="display: none"><img class="loadingAnimate" src="{{asset('images/loading.svg')}}" alt="Loading"><p>Sending...</p></div>
                     </div>
                 </form>
             </div>

@@ -8,7 +8,7 @@
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css?ver='.$time)}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome-all.css')}}">
+<link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}"/>
@@ -26,7 +26,6 @@
 <link rel='stylesheet' href='{{asset('js/plugins/contact-form-7/includes/css/styles.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('js/plugins/revslider/public/assets/css/settings.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('js/vendor/animate-css/animate.min.css')}}' type='text/css' media='all'/>
-<link rel='stylesheet' href='{{asset('js/vendor/font-awesome-4.3.0/css/font-awesome.min.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('js/vendor/fancybox-2.1.5/jquery.fancybox.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('js/vendor/et-line-font/style.css')}}' type='text/css' media='all'/>
 <link rel='stylesheet' href='{{asset('js/vendor/owl-carousel/owl.carousel.css')}}' type='text/css' media='all'/>

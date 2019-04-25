@@ -11,14 +11,14 @@
                                         <article id="post-92" class="beau-post-in-list post-92 post type-post status-publish format-standard has-post-thumbnail hentry category-branding category-photography category-print tag-awesome tag-photography">
                                             <div class="beau-article-content">
                                                 <h1 class="beau-article-title"><em>{{$post->title}}</em></h1>
-                                                <div class="beau-article-author">By <a href="#" title="Posts by beauwp" rel="author">{{$post->author}}</a></div>
+                                                <div class="beau-article-author"><i class="fal fa-portrait"></i> By <a href="#" title="Posts by beauwp" rel="author">{{$post->author}}</a></div>
                                                 <div class="beau-article-meta-wrapper">
                                                     <a class="beau-article-meta-date" href="javascript:;">
-                                                        <span class="time-month">{{$post->created_at}}</span>
+                                                        <span class="time-month"><i class="fal fa-calendar-alt"></i> {{$post->created_at}}</span>
                                                     </a>
                                                     |
                                                     <div class="beau-article-meta-tags">
-                                                        <a href="#">{{$post->view}} views</a> | <a href="#">{{$post->getPostCategory->theme}}</a> </div>
+                                                        <a href="#"><i class="fal fa-eye"></i> {{$post->view}} views</a> | <a href="#"><i class="far fa-clipboard-list-check"></i> {{$post->getPostCategory->theme}}</a> </div>
                                                 </div>
                                                 <div class="beau-article-excerpt">
                                                      {!! $post->content !!}

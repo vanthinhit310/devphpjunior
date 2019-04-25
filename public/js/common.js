@@ -87,6 +87,15 @@ var Loading = {
         else {
             e.style.display = 'block';
         }
+    },
+    showLoadingSVGLog: function () {
+        var e = document.getElementById('msg-success-login');
+        if (e.style.display === 'block') {
+            e.style.display = 'none';
+        }
+        else {
+            e.style.display = 'block';
+        }
     }
 
 };
@@ -107,32 +116,32 @@ var Form = {
                 var checkFrom = true;
                 var email = jQuery('#email').val();
                 if (jQuery('#username').val() === '' || jQuery('#username').val() === 'undefined') {
-                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('#errorReg').html('<i class="fal fa-exclamation-circle"></i>Some thing went wrong. Please check again.');
                     jQuery('.username-reg').css('border', 'solid 1px red');
                     checkFrom = false;
                 }
                 if (jQuery('#email').val() === '' || jQuery('#email').val() === 'undefined') {
-                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('#errorReg').html('<i class="fal fa-exclamation-circle"></i>Some thing went wrong. Please check again.');
                     jQuery('.email-reg').css('border', 'solid 1px red');
                     checkFrom = false;
                 }
                 if (!(Form.validateEmail(email))) {
-                    jQuery('#errorReg').html('Email has wrong format. Please check again.');
+                    jQuery('#errorReg').html('<i class="fal fa-exclamation-circle"></i>Email has wrong format. Please check again.');
                     jQuery('.email-reg').css('border', 'solid 1px red');
                     checkFrom = false;
                 }
                 if (jQuery('#password').val() === '' || jQuery('#password').val() === 'undefined') {
-                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('#errorReg').html('<i class="fal fa-exclamation-circle"></i>Some thing went wrong. Please check again.');
                     jQuery('.password-reg').css('border', 'solid 1px red');
                     checkFrom = false;
                 }
                 if (jQuery('#confirm').val() === '' || jQuery('#confirm').val() === 'undefined') {
-                    jQuery('#errorReg').html('Some thing went wrong. Please check again.');
+                    jQuery('#errorReg').html('<i class="fal fa-exclamation-circle"></i>Some thing went wrong. Please check again.');
                     jQuery('.confirm-reg').css('border', 'solid 1px red');
                     checkFrom = false;
                 }
                 if (jQuery('#password').val() !== jQuery('#confirm').val()) {
-                    jQuery('#errorReg').html('Password not match. Please check again.');
+                    jQuery('#errorReg').html('<i class="fal fa-exclamation-circle"></i>Password not match. Please check again.');
                     jQuery('.confirm-reg').css('border', 'solid 1px red');
                     jQuery('.password-reg').css('border', 'solid 1px red');
                     checkFrom = false;
@@ -167,6 +176,39 @@ var Form = {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     }
+    ,
+    validateLoginForm: function () {
+        if (jQuery('.submit-form-login').length) {
+            jQuery('.submit-form-login').on('click', function () {
+                var _checkForm = true;
+                if (jQuery('#log-email').val() === '' || jQuery('#log-email').val() === 'undefined') {
+                    jQuery('#errorLog').html('<i class="fal fa-exclamation-circle"></i> Email went wrong. Please check again.');
+                    jQuery('.email-log-gin').css('border', 'solid 1px red');
+                    _checkForm = false;
+                }
+                if (jQuery('#log-password').val() === '' || jQuery('#log-password').val() === 'undefined') {
+                    jQuery('#errorLog').html('<i class="fal fa-exclamation-circle"></i> Password went wrong. Please check again.');
+                    jQuery('.password-log-gin').css('border', 'solid 1px red');
+                    _checkForm = false;
+                }
+                if (_checkForm === true) {
+                    Loading.showLoadingSVGLog();
+                    jQuery('#log-form').submit();
+                }
+            });
+            jQuery('#log-form').on('keyup', function () {
+                if (jQuery('#log-email').val() !== '') {
+                    jQuery('#errorLog').html('');
+                    jQuery('.email-log-gin').css('border', 'solid 1px green');
+                }
+                if (jQuery('#log-password').val() !== '') {
+                    jQuery('#errorLog').html('');
+                    jQuery('.password-log-gin').css('border', 'solid 1px green');
+                }
+                return true;
+            });
+        }
+    }
 };
 var SwiperSlide = {
     swiperMTPage: function () {
@@ -176,53 +218,48 @@ var SwiperSlide = {
             autoHeight: true,
             slidesPerView: 1,
             spaceBetween: 10,
-            effect:'fade',
+            effect: 'fade',
             pagination: {
                 el: '.swiper-pagination',
                 type: 'progressbar',
             },
-            autoplay:{
-                delay:1000
-            },fadeEffect: {
+            autoplay: {
+                delay: 1000
+            }, fadeEffect: {
                 crossFade: true
             }
         });
 
     }
 };
-var Timer={
-    countUpTimer:function () {
-        var startDateTime = new Date(2016,9,10,19,0,0,0); // YYYY (M-1) D H m s ms (start time and date from DB)
-        var startStamp = startDateTime.getTime();
+var Timer = {
+    countUpTimer: function (countFrom, id) {
+        countFrom = new Date(countFrom).getTime();
+        var now = new Date(),
+            countFrom = new Date(countFrom),
+            timeDifference = (now - countFrom);
 
-        var newDate = new Date();
-        var newStamp = newDate.getTime();
+        var secondsInADay = 60 * 60 * 1000 * 24,
+            secondsInAHour = 60 * 60 * 1000;
 
-        var timer; // for storing the interval (to stop or pause later if needed)
-
-        function updateClock() {
-            newDate = new Date();
-            newStamp = newDate.getTime();
-            var diff = Math.round((newStamp-startStamp)/1000);
-
-            var d = Math.floor(diff/(24*60*60)); /* though I hope she won't be working for consecutive days :) */
-            diff = diff-(d*24*60*60);
-            var h = Math.floor(diff/(60*60));
-            diff = diff-(h*60*60);
-            var m = Math.floor(diff/(60));
-            diff = diff-(m*60);
-            var s = diff;
-            document.getElementById('day').innerHTML = d;
-            document.getElementById('hour').innerHTML = h;
-            document.getElementById('minutes').innerHTML = m;
-            document.getElementById('seconds').innerHTML = s;
+        days = Math.floor(timeDifference / (secondsInADay));
+        hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour));
+        mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000));
+        secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000);
+        if (jQuery('#countup1').length) {
+            document.getElementById('day').innerHTML = days;
+            document.getElementById('hour').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = mins;
+            document.getElementById('seconds').innerHTML = secs;
         }
-
-        timer = setInterval(updateClock, 1000);
+        clearTimeout(Timer.countUpTimer.interval);
+        Timer.countUpTimer.interval = setTimeout(function () {
+            Timer.countUpTimer(countFrom, id);
+        }, 1000);
     }
 };
 window.onload = function () {
-
+    Timer.countUpTimer("Oct 10, 2016 19:00:00", 'countup1');
 };
 
 jQuery(document).ready(function () {
@@ -233,9 +270,9 @@ jQuery(document).ready(function () {
     Menu.activeMenu();
 
     Form.validateRegisterForm();
+    Form.validateLoginForm();
 
     // SwiperSlide.swiperMTPage();
 
-    Timer.countUpTimer();
 
 });

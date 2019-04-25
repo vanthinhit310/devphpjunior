@@ -11,7 +11,7 @@
                                     class="beau-section-header wpb_content_element clearfix text-center separator-image"
                                     id='beau-section-header-1'>
                                     <h2 class='heading'>HAVE A QUESTION</h2>
-                                    <div class='separator'><img src='upload/section-divider-1.png' class='image'
+                                    <div class='separator'><img src='{{asset('images/section-divider-1.png')}}' class='image'
                                                                 alt='section header separator'></div>
                                 </div>
                                 <div class="vc_empty_space" style="height: 32px"><span
@@ -21,7 +21,7 @@
                                         <div class="wpb_wrapper">
                                             <div class='beau-icon-box wpb_content_element clearfix text-center'
                                                  id='beau-icon-box-2'>
-                                                <div class='icon'><i class='featured-icon fa fa-twitter'></i></div>
+                                                <div class='icon'><i class="far fa-phone-volume"></i></div>
                                                 <div class='content'>CALL US
                                                     <br/>
                                                     <a href="#">{{$about->phone}}</a></div>
@@ -128,7 +128,7 @@
                                                     <span id="msg" class="text-danger" style="font-size: 11px;"></span>
                                                 </div>
                                                 <button class="beau-button" id="submit-contact-form" value="submit"
-                                                        type="submit">SUBMIT
+                                                        type="submit"><i class="fal fa-paper-plane"></i> SUBMIT
                                                 </button>
                                             </div>
                                             <div id="msg-success" style="display: none"><img class="loadingAnimate" src="{{asset('images/loading.svg')}}" alt="Loading"><p>Sending...</p></div>

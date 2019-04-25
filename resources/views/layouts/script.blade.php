@@ -71,6 +71,13 @@
     })(jQuery);
 </script>
 <script type='text/javascript' src='{{asset('js/plugins/LayerSlider/static/js/greensock.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/all.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/brands.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/fontawesome.min.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/light.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/regular.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/solid.js')}}'></script>
+<script type='text/javascript' src='{{asset('js/v4-shims.js')}}'></script>
 <script type='text/javascript' src='{{asset('js/plugins/LayerSlider/static/js/layerslider.kreaturamedia.jquery.js')}}'></script>
 <script type='text/javascript' src='{{asset('js/plugins/LayerSlider/static/js/layerslider.transitions.js')}}'></script>
 <script type='text/javascript' src='{{asset('js/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js')}}'></script>

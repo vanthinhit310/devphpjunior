@@ -19,12 +19,14 @@
                     margin: 20px 0;
                     svg, i {
                         margin: 0 10px;
+                        display: inline-block;
                     }
                     input {
-                        width: 200px;
+                        width: 220px;
                         border: none;
                         height: 30px;
-                        padding: 0 30px;
+                        padding: 0 15px;
+                        display: inline-block;
                     }
 
                     input:focus {

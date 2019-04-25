@@ -25,7 +25,7 @@
                                     class="beau-section-header wpb_content_element clearfix text-center separator-image"
                                     id='beau-section-header-12'>
                                     <h2 class='heading'>ESTEEMED CLIENTS</h2>
-                                    <div class='separator'><img src='{{asset('upload/section-divider-1.png')}}'
+                                    <div class='separator'><img src='{{asset('images/section-divider-1.png')}}'
                                                                 class='image' alt='section header separator'></div>
                                 </div>
 

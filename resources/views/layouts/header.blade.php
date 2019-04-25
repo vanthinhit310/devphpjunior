@@ -55,7 +55,7 @@
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="javascript:;">Project.<span class="caret"></span></a>
                             <ul class="sub-menu">
                                 <li class="menu-item"><a href="{{route('practice.maithanh')}}"><span class='resp-nav-gap'></span>Vợ yêu</a></li>
-                                <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project <i class="fa fa-arrow-circle-o-right"></i></a>
+                                <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project <i class="fal fa-caret-right"></i></a>
                                     <ul class="sub-menu">
                                         <li class="menu-item"><a href="javascript:;">Project 2</a></li>
                                         <li class="menu-item"><a href="javascript:;">Project 2</a></li>
@@ -66,9 +66,10 @@
                             </ul>
                         </li>
                         <li class="menu-item"><a href="{{route('app.contacts')}}">Contact.</a></li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="javascript:;"><i class="fas fa-users"></i></a>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a href="javascript:;"><i class="fal fa-user-secret"></i></a>
                             <ul class="sub-menu">
                                 <li class="menu-item"><a data-toggle="modal" data-target="#register-form" href="javascript:;"><i class="fas fa-user-plus"></i> Register</a></li>
+                                <li class="menu-item"><a data-toggle="modal" data-target="#sign-in-form" href="javascript:;"><i class="fal fa-sign-in-alt"></i> Sign in</a></li>
                             </ul>
                         </li>
                     </ul>

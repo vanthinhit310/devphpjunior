@@ -1,0 +1,65 @@
+.modal-wrapper-log {
+    .modal {
+        left: 180px;
+        .modal-content {
+            min-height: 350px;
+            width: 350px;
+            .modal-header {
+                border: none;
+                h2 {
+                    transform: translate(85px, 35px);
+                }
+            }
+            .modal-body {
+                padding: 20px 30px;
+                margin: 0 auto;
+                .field {
+                    border: 1px solid #999;
+                    border-radius: 10px;
+                    margin: 20px 0;
+                    svg, i {
+                        margin: 0 10px;
+                        display: inline-block;
+                    }
+                    input {
+                        width: 220px;
+                        border: none;
+                        height: 30px;
+                        padding: 0 15px;
+                        display: inline-block;
+                    }
+
+                    input:focus {
+                        outline: none;
+                    }
+                }
+            }
+            .modal-footer {
+                border: none;
+                .submit-form-login {
+                    position: absolute;
+                    right: 35%;
+                    bottom: 22%;
+                }
+            }
+        }
+    }
+}
+.error {
+    font-size: 10px;
+    position: relative;
+    span {
+        position: absolute;
+        left: 85px;
+        bottom: 15px;
+    }
+}
+#msg-success-login{
+    position: absolute;
+    top: 80%;
+    right: 46%;
+    max-width: 6%;
+    p{
+        transform: translate(-10px,-10px);
+    }
+}
