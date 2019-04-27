@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,15 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::post('/bot/getupdates', function() {
+    $updates = Telegram::getUpdates();
+    return (json_encode($updates));
+});
+Route :: post ('bot / sendmessage', function () {
+    Telegram :: sendMessage ([
+        'chat_id' => 'RECIPIENT_CHAT_ID',
+        'text' => 'Hello world!'
+    ]);
+    Return;
 });

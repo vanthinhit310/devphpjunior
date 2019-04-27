@@ -168,6 +168,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         TCG\Voyager\VoyagerServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -228,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class,
 
     ],
     // Export log

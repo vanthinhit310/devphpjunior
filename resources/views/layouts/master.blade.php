@@ -36,10 +36,6 @@
 {{--Include script library--}}
 @include('layouts.script')
 {{--End include script--}}
-@if(session('message'))
-    <script>swal('Successfully!', 'Your message has been sent. Thank you!', 'success');</script>
-@endif
-@if(session('messageError'))
-    <script>swal('Sorry!', 'Error, your message hasn\'t been sent', 'error');</script>
-@endif
+
+@include('general.notify')
 </html>

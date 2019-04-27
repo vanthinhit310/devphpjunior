@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Exceptions;
-
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
+use Illuminate\Support\Facades\Mail;
 
 class Handler extends ExceptionHandler
 {
@@ -30,11 +31,18 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
+        if ($exception instanceof \Throwable) {
+            $mytime = Carbon::now();
+            Mail::send('email.exception', ['error' => $exception->getMessage(),'time'=>$mytime], function ($m) use ($exception) {
+                $m->to('vanthinh.34101997@gmail.com', 'Lê Văn Thịnh')->subject('Error: '. $exception->getMessage());
+            });
+        }
         parent::report($exception);
     }
 

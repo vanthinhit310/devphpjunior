@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
+use App\Model\Member;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'app.home';
 
     /**
      * Create a new controller instance.
@@ -40,33 +42,61 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => 'unique:members'
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $member = Member::create([
+            'name' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'token' => str_random(40) . time(),
         ]);
+        $member->notify(new UserActivate($member));
+        return $member;
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($member = $this->create($request->all())));
+        return redirect()->route('app.home')
+            ->with(['success' => 'Congratulations! Your account is registered, you will shortly receive an email to activate your account.']);
+
+    }
+
+    /**
+     * @param $token
+     */
+    public function activate($token = null)
+    {
+        $member = Member::where('token', $token)->first();
+
+        if (empty($member)) {
+            return redirect()->to(route('app.home'))
+                ->with(['error' => 'Your activation code is either expired or invalid.']);
+        }
+
+        $member->update(['token' => null, 'active' => Member::ACTIVE]);
+
+        return redirect()->route('app.home')
+            ->with(['success' => 'Congratulations! your account is now activated.']);
     }
 }

@@ -33,7 +33,24 @@ Route::group([
     'as'=> 'process.'
 ],function(){
     Route::post('process-feedback','FeedbackController@processingFeedback')->name('sendFeedback');
+    //activate user
+    Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
+    //register
+    Route::post('process-register', 'Auth\RegisterController@register')->name('register');
+    //login
+    Route::post('process-login', 'Auth\LoginController@login')->name('login');
 });
+
+
+//Telegram bot
+Route::group([
+    'as'=> 'telegram.'
+], function (){
+Route::get('/updated-activity', 'TelegramBotController@updatedActivity')->name('updatedActivity');
+
+});
+
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {

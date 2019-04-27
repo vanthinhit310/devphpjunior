@@ -3,7 +3,7 @@
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-                <form id="log-form" action="" method="post">
+                <form id="log-form" action="{{route('process.login')}}" method="post">
                     @csrf
                     <div class="modal-header">
                         <h2 class="modal-title text-center">Sign in</h2>
@@ -11,7 +11,7 @@
                     <div class="modal-body">
                         <div class="field email-log-gin">
                             <i class="fal fa-envelope"></i>
-                            <input type="text" name="email" id="log-email" placeholder="Email"/>
+                            <input type="text" name="emaillog" id="log-email" placeholder="Email"/>
                         </div>
                         <div class="field password-log-gin">
                             <i class="fal fa-lock-alt"></i>
