@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;
@@ -14,8 +15,8 @@ use TCG\Voyager\Facades\Voyager;
 |
 */
 Route::group([
-    'as'=> 'app.'
-],function(){
+    'as' => 'app.'
+], function () {
     Route::get('/', 'HomeController@getIndex')->name('home');
     Route::get('/about-page', 'PagesController@getAboutPages')->name('about');
     Route::get('/blog-post', 'PagesController@getBlogPages')->name('blog');
@@ -24,15 +25,15 @@ Route::group([
     Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
 });
 Route::group([
-    'as'=> 'practice.'
-],function(){
+    'as' => 'practice.'
+], function () {
     Route::get('/mai-thanh', 'PagesController@getMaiThanhPages')->name('maithanh');
 });
 
 Route::group([
-    'as'=> 'process.'
-],function(){
-    Route::post('process-feedback','FeedbackController@processingFeedback')->name('sendFeedback');
+    'as' => 'process.'
+], function () {
+    Route::post('process-feedback', 'FeedbackController@processingFeedback')->name('sendFeedback');
     //activate user
     Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
     //register
@@ -44,9 +45,13 @@ Route::group([
 
 //Telegram bot
 Route::group([
-    'as'=> 'telegram.'
-], function (){
-Route::get('/updated-activity', 'TelegramBotController@updatedActivity')->name('updatedActivity');
+    'as' => 'telegram.'
+], function () {
+    Route::get('/telegram/updated-activity', 'TelegramBotController@updatedActivity')->name('updatedActivity');
+    Route::get('/telegram/send-message', 'TelegramBotController@sendMessage')->name('sendMessage');
+    Route::post('/telegram/store-message', 'TelegramBotController@storeMessage')->name('storeMessage');
+    Route::get('/telegram/send-photo', 'TelegramBotController@sendPhoto')->name('sendPhoto');
+    Route::post('/telegram/store-photo', 'TelegramBotController@storePhoto')->name('storePhoto');
 
 });
 

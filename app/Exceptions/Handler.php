@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
 use Illuminate\Support\Facades\Mail;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class Handler extends ExceptionHandler
 {
@@ -39,9 +40,19 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof \Throwable) {
             $mytime = Carbon::now();
-            Mail::send('email.exception', ['error' => $exception->getMessage(),'time'=>$mytime], function ($m) use ($exception) {
-                $m->to('vanthinh.34101997@gmail.com', 'Lê Văn Thịnh')->subject('Error: '. $exception->getMessage());
-            });
+//            Send error to email
+//            Mail::send('email.exception', ['error' => $exception->getMessage(),'time'=>$mytime], function ($m) use ($exception) {
+//                $m->to('vanthinh.34101997@gmail.com', 'Lê Văn Thịnh')->subject('Error: '. $exception->getMessage());
+//            });
+            $text = "A new Error From DEV PHP Junior Website\n"
+                . "<b>Time:</b>".$mytime .'\n'
+                . "<b>Error: </b>".$exception->getMessage();
+
+            Telegram::sendMessage([
+                'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001327712422.0'),
+                'parse_mode' => 'HTML',
+                'text' => $text
+            ]);
         }
         parent::report($exception);
     }
