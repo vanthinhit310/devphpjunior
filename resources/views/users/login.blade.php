@@ -11,7 +11,7 @@
                     <div class="modal-body">
                         <div class="field email-log-gin">
                             <i class="fal fa-envelope"></i>
-                            <input type="text" name="emaillog" id="log-email" placeholder="Email"/>
+                            <input type="text" name="email_log" id="log-email" placeholder="Email"/>
                         </div>
                         <div class="field password-log-gin">
                             <i class="fal fa-lock-alt"></i>

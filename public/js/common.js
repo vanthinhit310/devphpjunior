@@ -208,6 +208,68 @@ var Form = {
                 return true;
             });
         }
+    },
+    validateResetForm: function () {
+        if (jQuery('.reset-password-wrapper').length) {
+            jQuery('#submit-form-reset').on('click', function () {
+            console.log(5);
+                var check = true;
+                if (jQuery('#emailReset').val() === '' || jQuery('#emailReset').val() === 'undefined') {
+                    jQuery('.errorStatus').html('Something went wrong! Please try again.');
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (check === true){
+                    jQuery('.successStatus').html('Sending! Please wait...');
+                    jQuery('#form-reset-password').submit();
+                }
+            });
+            jQuery('#form-reset-password').on('keyup', function () {
+                if (jQuery('#emailReset').val() !== '') {
+                    jQuery('.errorStatus').html('');
+                    jQuery('.field-reset').css('border','solid 2px green');
+                }
+                return true;
+            });
+        }
+    }
+    ,
+    validateFormChangePassword:function () {
+        if (jQuery('.change-password-wrapper').length) {
+            jQuery('#submit-form-change').on('click', function () {
+                var check = true;
+               if (jQuery('#newPassword').val() === '' || jQuery('#newPassword').val() ==='undefined'){
+                   jQuery('.errorStatus').html('Something went wrong! Please check again.')
+                   jQuery('.field-reset').css('border','solid 1px red');
+                   check = false;
+               }
+                if (jQuery('#confirm_change').val() === '' || jQuery('#confirm_change').val() ==='undefined'){
+                    jQuery('.errorStatus').html('Something went wrong! Please check again.')
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (jQuery('#newPassword').val() !== jQuery('#confirmChange').val()){
+                    jQuery('.errorStatus').html('Your password and confirm do not match.');
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (check === true){
+                    jQuery('.successStatus').html('Sending. Please wait!');
+                    jQuery('#form-change-password').submit();
+                }
+            });
+            jQuery('#form-change-password').on('keyup', function () {
+                if (jQuery('#newPassword').val() !== ''){
+                    jQuery('.errorStatus').html('');
+                    jQuery('.field-reset').css('border','solid 2px green');
+                }
+                if (jQuery('#confirmChange').val() !== ''){
+                    jQuery('.errorStatus').html('');
+                    jQuery('.field-reset').css('border','solid 2px green');
+                }
+                return true;
+            });
+        }
     }
 };
 var SwiperSlide = {
@@ -271,7 +333,8 @@ jQuery(document).ready(function () {
 
     Form.validateRegisterForm();
     Form.validateLoginForm();
-
+    Form.validateResetForm();
+    Form.validateFormChangePassword();
     // SwiperSlide.swiperMTPage();
 
 

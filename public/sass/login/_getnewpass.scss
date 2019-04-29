@@ -1,0 +1,51 @@
+.reset-password-wrapper {
+    margin-top: 50px;
+    margin-bottom: auto;
+    .reset-pass {
+        width: 280px;
+        position: relative;
+        border: solid 1px black;
+        border-radius: 5px;
+        margin: 0 auto;
+        form {
+            padding: 20px 20px;
+            h2.title {
+                text-align: center;
+            }
+            .form-email {
+                .field-reset {
+                    padding: 0px 10px;
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    svg, i {
+                        transform: translateY(8px);
+                    }
+                    input {
+                        width: 200px;
+                        border: none;
+                        margin-left: 20px;
+                    }
+                }
+                div{
+                    span.errorStatus{
+                        position: absolute;
+                        top: 120px;
+                        left: 40px;
+                    }
+                    span.successStatus{
+                        position: absolute;
+                        top: 170px;
+                        left: 85px;
+                    }
+                }
+                button {
+                    margin-top: 20px;
+                    padding: 5px 5px;
+                    text-align: center;
+                    border-radius: 5px;
+                    margin-left: 45px;
+                }
+            }
+        }
+    }
+}

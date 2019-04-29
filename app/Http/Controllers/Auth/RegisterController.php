@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Model\Member;
+use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -45,7 +45,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'email' => 'unique:members'
+            'email' => 'unique:users'
         ]);
     }
 
@@ -57,11 +57,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $member = Member::create([
+        $member = User::create([
             'name' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'token' => str_random(40) . time(),
+            'active' => 0
         ]);
         $member->notify(new UserActivate($member));
         return $member;
@@ -87,14 +88,14 @@ class RegisterController extends Controller
      */
     public function activate($token = null)
     {
-        $member = Member::where('token', $token)->first();
+        $member = User::where('token', $token)->first();
 
         if (empty($member)) {
             return redirect()->to(route('app.home'))
                 ->with(['error' => 'Your activation code is either expired or invalid.']);
         }
 
-        $member->update(['token' => null, 'active' => Member::ACTIVE]);
+        $member->update(['token' => null, 'active' => User::ACTIVE]);
 
         return redirect()->route('app.home')
             ->with(['success' => 'Congratulations! your account is now activated.']);

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Exceptions;
+
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
-use Illuminate\Support\Facades\Mail;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class Handler extends ExceptionHandler
@@ -38,15 +38,13 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if ($exception instanceof \Throwable) {
+        if ($exception instanceof Exception) {
             $mytime = Carbon::now();
 //            Send error to email
 //            Mail::send('email.exception', ['error' => $exception->getMessage(),'time'=>$mytime], function ($m) use ($exception) {
 //                $m->to('vanthinh.34101997@gmail.com', 'Lê Văn Thịnh')->subject('Error: '. $exception->getMessage());
 //            });
-            $text = "A new Error From DEV PHP Junior Website\n"
-                . "<b>Time:</b>".$mytime .'\n'
-                . "<b>Error: </b>".$exception->getMessage();
+            $text = "<b>Time:</b>" . $mytime . "\n" . "<b>Error: </b>" . $exception->getMessage();
 
             Telegram::sendMessage([
                 'chat_id' => env('TELEGRAM_CHANNEL_ID', '-1001327712422.0'),
@@ -60,8 +58,8 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $exception
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)

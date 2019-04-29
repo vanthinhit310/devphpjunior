@@ -23,6 +23,9 @@ Route::group([
     Route::get('/contact-us', 'PagesController@getContactPages')->name('contacts');
     Route::get('/post/{category?}/{slug?}', 'PagesController@getPostPages')->name('post');
     Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
+    Route::get('/reset-password','PagesController@getResetPasswordPage')->name('reset');
+    Route::get('/get-new-password','PagesController@getChangePasswordPage')->name('change');
+    Route::get('/update-new-password','PagesController@getUpdatePasswordPage')->name('update');
 });
 Route::group([
     'as' => 'practice.'
@@ -40,8 +43,14 @@ Route::group([
     Route::post('process-register', 'Auth\RegisterController@register')->name('register');
     //login
     Route::post('process-login', 'Auth\LoginController@login')->name('login');
-});
+    //logout
+    Route::get('process-logout', 'Auth\LoginController@logout')->name('logout');
+    //Forgot passwords
+    Route::post('process-reset-password', 'Auth\ForgotPasswordController@resetPassword')->name('reset');
+    Route::post('password/store-new-password','Auth\ResetPasswordController@changPassword')->name('change-Password');
+    Route::get('password-reset/{token}','Auth\ForgotPasswordController@setNewPassword')->name('activatePassword');
 
+});
 
 //Telegram bot
 Route::group([

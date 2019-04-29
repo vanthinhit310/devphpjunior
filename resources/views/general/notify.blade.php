@@ -17,5 +17,13 @@
     <script>swal('Error!', '{{$errors->first('email_log')}}', 'error');</script>
 
 @endif
+@if($errors->has('email_reset'))
+    <script>swal('Error!', '{{$errors->first('email_reset')}}', 'error');</script>
+
+@endif
+@if(session('error_change_password'))
+    <script>swal('Error!', '{{session('error_change_password')}}', 'error');</script>
+
+@endif
 
 

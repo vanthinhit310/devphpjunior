@@ -18,6 +18,7 @@ class PagesController extends Controller
         $this->data['about'] = $about->getAbout();
         return view('about.index', $this->data);
     }
+
     public function getBlogPages(AboutService $about, PostService $post)
     {
         $this->data['titlePage'] = 'Blog';
@@ -25,6 +26,7 @@ class PagesController extends Controller
         $this->data['posts'] = $post->getListPost();
         return view('blog.index', $this->data);
     }
+
     public function getContactPages(AboutService $about)
     {
         $this->data['titlePage'] = 'Contact us';
@@ -50,6 +52,24 @@ class PagesController extends Controller
         $this->data['titlePage'] = 'Ngắm vợ yêu';
         $this->data['garellies'] = $gareliesServie->getGarellies();
         return view('practices.maithanh.index', $this->data);
+    }
+
+    public function getResetPasswordPage()
+    {
+        $this->data['titlePage'] = 'Get new password';
+        return view('users.resetPassword', $this->data);
+    }
+
+    public function getChangePasswordPage()
+    {
+        $this->data['titlePage'] = 'Change your password';
+        return view('users.changePassword', $this->data);
+    }
+
+    public function getUpdatePasswordPage()
+    {
+        $this->data['titlePage'] = 'Update your password';
+        return view('users.update-password', $this->data);
     }
 
 }

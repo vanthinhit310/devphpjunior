@@ -3,18 +3,26 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use TCG\Voyager\Voyager;
 
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
-
+    const ACTIVE = 1;
+    const INACTIVE = 0;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','remember_token','active'
+        'name',
+        'email',
+        'password',
+        'remember_token',
+        'token',
+        'active',
     ];
 
     /**
@@ -23,7 +31,8 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
