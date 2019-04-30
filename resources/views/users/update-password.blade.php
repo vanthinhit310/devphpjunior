@@ -3,7 +3,7 @@
     <section class="update-password-wrapper">
         <div class="main">
             <div class="reset-pass">
-                <form id="form-change-password" action="" method="post">
+                <form id="form-update-password" action="{{route('process.update-Password')}}" method="post">
                     @csrf
                     <h2 class="title text-capitalize">Update password</h2>
                     <div class="form-email">
@@ -13,7 +13,7 @@
                         </div>
                         <div class="field-reset row">
                             <i class="fal fa-unlock-alt"></i>
-                            <input type="password" name="new_password" id="newPassword_update" placeholder="New password"/>
+                            <input type="password" name="new_password_update" id="newPassword_update" placeholder="New password"/>
                         </div>
                         <div class="field-reset row">
                             <i class="fal fa-fingerprint"></i>

@@ -271,6 +271,53 @@ var Form = {
             });
         }
     }
+    ,
+    validateFormUpdatePassword:function () {
+        if (jQuery('.update-password-wrapper').length){
+            jQuery('#submit-form-update').on('click', function () {
+                var check = true;
+                if (jQuery('#currentPassword_update').val() === '' || jQuery('#currentPassword_update').val() === 'undefined'){
+                    jQuery('.errorStatus').html('Something went wrong! Please check again.')
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (jQuery('#newPassword_update').val() === '' || jQuery('#newPassword_update').val() === 'undefined'){
+                    jQuery('.errorStatus').html('Something went wrong! Please check again.')
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (jQuery('#confirmUpdate').val() === '' || jQuery('#confirmUpdate').val() === 'undefined'){
+                    jQuery('.errorStatus').html('Something went wrong! Please check again.')
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (jQuery('#newPassword_update').val() !== jQuery('#confirmUpdate').val()){
+                    jQuery('.errorStatus').html('Your password and confirm do not match.')
+                    jQuery('.field-reset').css('border','solid 1px red');
+                    check = false;
+                }
+                if (check === true){
+                    jQuery('.successStatus').html('Sending. Please wait!');
+                    jQuery('#form-update-password').submit();
+                }
+            });
+            jQuery('#form-update-password').on('keyup', function () {
+                if (jQuery('#currentPassword_update').val() !== ''){
+                    jQuery('.errorStatus').html('');
+                    jQuery('.field-reset').css('border','solid 2px green');
+                }
+                if (jQuery('#newPassword_update').val() !== ''){
+                    jQuery('.errorStatus').html('');
+                    jQuery('.field-reset').css('border','solid 2px green');
+                }
+                if (jQuery('#confirmUpdate').val() !== ''){
+                    jQuery('.errorStatus').html('');
+                    jQuery('.field-reset').css('border','solid 2px green');
+                }
+                return true;
+            });
+        } 
+    }
 };
 var SwiperSlide = {
     swiperMTPage: function () {
@@ -335,6 +382,7 @@ jQuery(document).ready(function () {
     Form.validateLoginForm();
     Form.validateResetForm();
     Form.validateFormChangePassword();
+    Form.validateFormUpdatePassword();
     // SwiperSlide.swiperMTPage();
 
 

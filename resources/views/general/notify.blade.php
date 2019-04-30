@@ -25,5 +25,12 @@
     <script>swal('Error!', '{{session('error_change_password')}}', 'error');</script>
 
 @endif
+@if($errors->has('new_password_update'))
+    <script>swal('Error!', '{{$errors->first('new_password_update')}}', 'error');</script>
+
+@endif
+@if(session('error_update_password'))
+    <script>swal('Error!', '{{session('error_update_password')}}', 'error');</script>
+@endif
 
 
