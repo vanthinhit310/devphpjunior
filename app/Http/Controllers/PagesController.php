@@ -6,6 +6,7 @@ use App\Service\AboutService;
 use App\Service\FavoriteService;
 use App\Service\GareliesServie;
 use App\Service\PostService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -70,6 +71,12 @@ class PagesController extends Controller
     {
         $this->data['titlePage'] = 'Update your password';
         return view('users.update-password', $this->data);
+    }
+
+    public function getCreateLogPage()
+    {
+        date('Y-m-d'); // 2016-10-12
+        Carbon::now();
     }
 
 }

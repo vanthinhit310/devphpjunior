@@ -1,6 +1,7 @@
 <section class="contact-wrapper">
     <div id="main-container">
         <div class="page-content container page-page">
+            @if($about)
             <section class="beau-mainbar">
                 <blockquote>{{$about->contact_qoutes}}</blockquote>
                 <article id="post-2221" class="post-2221 page type-page status-publish hentry">
@@ -72,7 +73,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <span class="wpcf7-form-control-wrap your-name">
-                                                    <input name="fullname" id="name" type="text" value="" size="40"
+                                                    <input name="full_name" id="name" type="text" value="" size="40"
                                                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                            aria-required="true" aria-invalid="false"
                                                            placeholder="Name:"/>
@@ -159,7 +160,7 @@
                 </div>
             </article>
         </section>
-
+            @endif
     </div>
 </div>
 

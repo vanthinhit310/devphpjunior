@@ -68,6 +68,12 @@ Route::group([
 });
 
 
+
+// Dev Test
+Route::get('dev/test','DevTestController@DevTest');
+
+
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {

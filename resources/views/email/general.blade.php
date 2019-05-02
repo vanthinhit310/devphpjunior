@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-<h4>Feedback name: {{$name_fb}} </h4>
-<a href=""><p>Feeaback email: {{$email_fb}}</p></a>
-<p>Feedback phone: {{$phone_fb}}</p>
-<h4>Feedback subject: {{$subject_fb}}</h4>
-<p>Feedback message: {{$message_fb}}</p>
+<br>Chân thành cảm ơn bạn đã gửi phản hồi cho mình giúp mình cải thiện tốt hơn website của bản thân.</br>
+Chúc bạn có thật nhiều sức khỏe. Và nhớ tiếp tục ủng hộ mình nhé. Xin cám ơn.
+</p>
 </body>
 </html>
+

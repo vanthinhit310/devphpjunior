@@ -22,17 +22,16 @@ class FeedbackController extends Controller
         try{
             DB::beginTransaction();
             $datas = [
-              'name_fb' => Input::get('fullname'),
+              'name_fb' => Input::get('full_name'),
               'email_fb' => Input::get('mail'),
               'subject_fb' => Input::get('subject'),
               'phone_fb' => Input::get('tel'),
-              'message_fb' => Input::get('comment'),
+              'message_fb' => Input::get('comment')
             ];
             if ($feedback = $feedbackService->createFeedbackRecords($datas)){
                 Mail::send('email.general', $feedback->toArray(), function ($message) use ($request, $feedback) {
-                    $message->from('vanthinh.34101997@gmail.com', $request['subject']);
-                    $message->to(setting('admin.email'),
-                        setting('site.title'))->subject('Feedback from ' . $request['fullname']);
+                    $message->from(setting('admin.admin_email'), $request['subject']);
+                    $message->to($request->mail, setting('site.title'))->subject('Feedback from ' . $request['full_name']);
                 });
             }
             DB::commit();

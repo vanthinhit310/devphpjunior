@@ -6,12 +6,14 @@
                     <div class="col-md-12">
                         <div id="text-2" class="clearfix widget_text">
                             <div class="textwidget">
-                                <p style="text-align: center; margin-top: 60px;"><a style="margin-right: 30px;"
-                                                                                    href="#"><i
-                                            class="fab fa-facebook-square"></i> FACEBOOK</a> <a
-                                        style="margin-right: 30px;" href="#"><i class="fab fa-twitter-square"></i>
-                                        TWITTER</a> <a style="margin-right: 30px;" href="#"><i class="fab fa-instagram"></i> INSTAGRAM</a> <a href="#"><i class="fab fa-pinterest"></i> PINTEREST</a>
-                                </p>
+                                @if(isset($about))
+                                    <p style="text-align: center; margin-top: 60px;"><a target="_blank" style="margin-right: 30px;" href="{{$about->facebook}}"><i
+                                                class="fab fa-facebook-square"></i> FACEBOOK</a> <a target="_blank" style="margin-right: 30px;" href="{{$about->skype}}"><i
+                                                class="fab fa-skype"></i>SKYPE</a> <a target="_blank" style="margin-right: 30px;" href="{{$about->github}}"><i
+                                                class="fab fa-github-square"></i> GITHUB</a> <a target="_blank" href="{{$about->linkedin}}"><i
+                                                class="fab fa-linkedin"></i> LINKEDIN</a>
+                                    </p>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -64,13 +64,11 @@
                                 <ul class="sub-menu">
                                     <li class="menu-item"><a href="{{route('practice.maithanh')}}"><span
                                                 class='resp-nav-gap'></span>Vợ yêu</a></li>
-                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project
+                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Log daily's
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
+                                            <li class="menu-item"><a href="javascript:;"><i class="fal fa-blog"></i> Create</a></li>
+                                            <li class="menu-item"><a href="javascript:;"><i class="fal fa-clipboard-list-check"></i> List</a></li>
                                         </ul>
                                     </li>
                                 </ul>
