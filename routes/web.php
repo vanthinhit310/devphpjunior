@@ -26,6 +26,7 @@ Route::group([
     Route::get('/reset-password', 'PagesController@getResetPasswordPage')->name('reset');
     Route::get('/get-new-password', 'PagesController@getChangePasswordPage')->name('change');
     Route::get('/update-new-password', 'PagesController@getUpdatePasswordPage')->name('update');
+    Route::get('/create-new-log', 'PagesController@getCreateLogPage')->name('store_Log');
 });
 Route::group([
     'as' => 'practice.'

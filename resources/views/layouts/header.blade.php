@@ -67,7 +67,7 @@
                                     <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Log daily's
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item"><a href="javascript:;"><i class="fal fa-blog"></i> Create</a></li>
+                                            <li class="menu-item"><a href="{{route('app.store_Log')}}"><i class="fal fa-blog"></i> Create</a></li>
                                             <li class="menu-item"><a href="javascript:;"><i class="fal fa-clipboard-list-check"></i> List</a></li>
                                         </ul>
                                     </li>

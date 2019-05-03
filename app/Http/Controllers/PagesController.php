@@ -75,8 +75,7 @@ class PagesController extends Controller
 
     public function getCreateLogPage()
     {
-        date('Y-m-d'); // 2016-10-12
-        Carbon::now();
+        $this->data['titlePage'] = 's';
+        return view('log-daily.index-create-log', $this->data);
     }
-
 }

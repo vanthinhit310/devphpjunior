@@ -1,4 +1,3 @@
-@extends('layouts.master')
-@section('content')
-
-@endsection
+<section class="create-log-wrapper">
+<p>xin chào</p>
+</section>
