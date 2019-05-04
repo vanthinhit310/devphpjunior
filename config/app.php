@@ -170,6 +170,7 @@ return [
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
         Elasticquent\ElasticquentServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -232,6 +233,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class,
         'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
     // Export log
