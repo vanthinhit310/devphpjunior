@@ -102,4 +102,5 @@
 <script src="{{asset('js/vendor/countdowntime/moment-timezone-with-data.min.js')}}"></script>
 <script src="{{asset('js/vendor/countdowntime/countdowntime.js')}}"></script>
 <script src="{{asset('js/vendor/tilt/tilt.jquery.min.js')}}"></script>
+<script src="{{asset('js/ckeditor.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>

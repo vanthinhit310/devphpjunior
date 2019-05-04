@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     //
+    private $data;
+
     public function getAboutPages(AboutService $about, FavoriteService $favorite)
     {
         $this->data['titlePage'] = 'About us';
@@ -76,7 +78,9 @@ class PagesController extends Controller
 
     public function getCreateLogPage()
     {
-        $this->data['titlePage'] = 's';
+        $currentTime = Carbon::now();
+        $this->data['titlePage'] = 'Log #'.$currentTime->format('d.m.Y');
+        $this->data['day'] = $currentTime->format('d/m/Y');
         return view('log-daily.index-create-log', $this->data);
     }
 }

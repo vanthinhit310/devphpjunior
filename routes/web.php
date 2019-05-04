@@ -26,7 +26,7 @@ Route::group([
     Route::get('/reset-password', 'PagesController@getResetPasswordPage')->name('reset');
     Route::get('/get-new-password', 'PagesController@getChangePasswordPage')->name('change');
     Route::get('/update-new-password', 'PagesController@getUpdatePasswordPage')->name('update');
-    Route::get('/create-new-log', 'PagesController@getCreateLogPage')->name('store_Log');
+    Route::get('/store-new-log-daily', 'PagesController@getCreateLogPage')->name('log-index');
     Route::get('/search-results', 'SearchController@getSearchResultPage')->name('searchPage');
 });
 Route::group([
@@ -59,6 +59,9 @@ Route::group([
 
 });
 
+
+
+
 //Telegram bot
 Route::group([
     'as' => 'telegram.'
@@ -70,6 +73,9 @@ Route::group([
     Route::post('/telegram/store-photo', 'TelegramBotController@storePhoto')->name('storePhoto');
 
 });
+
+
+
 
 
 // Dev Test

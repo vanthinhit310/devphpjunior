@@ -384,7 +384,19 @@ var Custom = {
             });
         }
     }
-    
+
+};
+var CKEditor = {
+    getEditorLogPage: function () {
+        if (jQuery('#editorLog').length) {
+            ClassicEditor.create(document.querySelector('#editorLog'), {
+                toolbar: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo"]
+            })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    }
 };
 window.onload = function () {
     Timer.countUpTimer("Oct 10, 2016 19:00:00", 'countup1');
@@ -408,5 +420,6 @@ jQuery(document).ready(function () {
     Tooltip.showTooltip();
     Custom.getHTLMTag();
 
+    CKEditor.getEditorLogPage();
 
 });

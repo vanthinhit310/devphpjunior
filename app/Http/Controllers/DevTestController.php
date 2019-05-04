@@ -18,8 +18,9 @@ class DevTestController extends Controller
     {
 
         $date = Carbon::now();
-        $date->date('Y-m-d');
-        echo $date;
+//        $date->date('Y-m-d');
+//        $date->day;
+        echo $date->format('d.m.Y');
     }
 
     public function index(Request $request)
