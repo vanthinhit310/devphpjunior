@@ -383,6 +383,14 @@ var Custom = {
                 jQuery('#search-form').submit();
             });
         }
+    },
+    scrollToTopPage: function () {
+        if (jQuery('.extension-content').length) {
+            jQuery('.scroll-to-top').on("click", function () {
+                jQuery('html, body').animate({scrollTop: 0}, 'slow', function () {
+                });
+            });
+        }
     }
 
 };
@@ -418,7 +426,10 @@ jQuery(document).ready(function () {
 
 
     Tooltip.showTooltip();
+
+
     Custom.getHTLMTag();
+    Custom.scrollToTopPage();
 
     CKEditor.getEditorLogPage();
 

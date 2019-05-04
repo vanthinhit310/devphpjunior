@@ -25,8 +25,8 @@ Route::group([
     Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
     Route::get('/reset-password', 'PagesController@getResetPasswordPage')->name('reset');
     Route::get('/get-new-password', 'PagesController@getChangePasswordPage')->name('change');
-    Route::get('/update-new-password', 'PagesController@getUpdatePasswordPage')->name('update');
-    Route::get('/store-new-log-daily', 'PagesController@getCreateLogPage')->name('log-index');
+    Route::get('/update-new-password', 'PagesController@getUpdatePasswordPage')->name('update')->middleware('auth');
+    Route::get('/store-new-log-daily', 'PagesController@getCreateLogPage')->name('log-index')->middleware('auth');
     Route::get('/search-results', 'SearchController@getSearchResultPage')->name('searchPage');
 });
 Route::group([
@@ -38,7 +38,7 @@ Route::group([
 Route::group([
     'as' => 'process.'
 ], function () {
-    Route::post('process-feedback', 'FeedbackController@processingFeedback')->name('sendFeedback');
+    Route::post('process-feedback', 'FeedbackController@processingFeedback')->name('sendFeedback')->middleware('auth');
     //activate user
     Route::get('activate/{token}', 'Auth\RegisterController@activate')->name('activate');
     //register
@@ -56,6 +56,8 @@ Route::group([
         'Auth\ChangePasswordController@updateNewPassword')->name('update-Password');
     // Search form Post Details
     Route::get('process_search', 'SearchController@create')->name('search');
+    //Create new Log
+    Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog')->middleware('auth');
 
 });
 

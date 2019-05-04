@@ -32,6 +32,7 @@
 @include('layouts.footer')
 <!--Include footer html-->
 
+@include('general.extension')
 
 {{--Include script library--}}
 @include('layouts.script')
