@@ -21,6 +21,7 @@ class KeyService
         $key = Key::create($data);
         return $key;
     }
+
     /*
      * Get hot keys word
      * */
@@ -28,5 +29,17 @@ class KeyService
     {
         $keys = Key::orderBy('count_search', 'DESC')->take(10)->get();
         return $keys;
+    }
+
+    /*
+     * Update count_search of key
+     * */
+    public function updateCountSearch($key)
+    {
+        $word = Key::where('key', $key)->first();
+        $count_search = $word->count_search;
+        return $word->update([
+            'count_search' => $count_search + 1
+        ]);
     }
 }

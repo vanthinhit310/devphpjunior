@@ -25,34 +25,33 @@ class SearchController extends Controller
                 $keyService->createKeyWords($data);
                 $results = $searchService->getListSearchBlog($key);
                 $count = count($results);
-                $this->data['titlePage'] = 'Search Result';
-                $this->data['hot_keys'] = $keyService->getHotKeys();
-                $this->data['search_key'] = $key;
-                $this->data['search_results'] = $results;
-                $this->data['search_count'] = $count;
                 DB::commit();
-                return view('blog.search_result', $this->data);
+                return view('blog.search_result')->with([
+                    'titlePage' => 'Search Result',
+                    'hot_keys' => $keyService->getHotKeys(),
+                    'search_key' => $key,
+                    'search_results' => $results,
+                    'search_count' => $count
+                ]);
             } else {
+                $keyService->updateCountSearch($key);
                 $results = $searchService->getListSearchBlog($key);
                 $count = count($results);
-                $this->data['titlePage'] = 'Search Result';
-                $this->data['hot_keys'] = $keyService->getHotKeys();
-                $this->data['search_key'] = $key;
-                $this->data['search_results'] = $results;
-                $this->data['search_count'] = $count;
                 DB::commit();
-                return view('blog.search_result', $this->data);
+                return view('blog.search_result')->with([
+                    'titlePage' => 'Search Result',
+                    'hot_keys' => $keyService->getHotKeys(),
+                    'search_key' => $key,
+                    'search_results' => $results,
+                    'search_count' => $count
+                ]);
             }
         } catch (\Throwable $throwable) {
             DB::rollBack();
-            return redirect()->route('app.searchPage')->with([
-                'search_message' => 'No results for this key word! Please try another key word!'
-            ]);
+            return redirect()->route('app.searchPage');
         }
         DB::rollBack();
-        return redirect()->route('app.searchPage')->with([
-            'search_message' => 'No results for this key word! Please try another key word!'
-        ]);
+        return redirect()->route('app.searchPage');
     }
 
     public function getSearchResultPage(KeyService $keyService)

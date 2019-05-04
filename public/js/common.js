@@ -212,14 +212,14 @@ var Form = {
     validateResetForm: function () {
         if (jQuery('.reset-password-wrapper').length) {
             jQuery('#submit-form-reset').on('click', function () {
-            console.log(5);
+                console.log(5);
                 var check = true;
                 if (jQuery('#emailReset').val() === '' || jQuery('#emailReset').val() === 'undefined') {
                     jQuery('.errorStatus').html('Something went wrong! Please try again.');
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (check === true){
+                if (check === true) {
                     jQuery('.successStatus').html('Sending! Please wait...');
                     jQuery('#form-reset-password').submit();
                 }
@@ -227,96 +227,96 @@ var Form = {
             jQuery('#form-reset-password').on('keyup', function () {
                 if (jQuery('#emailReset').val() !== '') {
                     jQuery('.errorStatus').html('');
-                    jQuery('.field-reset').css('border','solid 2px green');
+                    jQuery('.field-reset').css('border', 'solid 2px green');
                 }
                 return true;
             });
         }
     }
     ,
-    validateFormChangePassword:function () {
+    validateFormChangePassword: function () {
         if (jQuery('.change-password-wrapper').length) {
             jQuery('#submit-form-change').on('click', function () {
                 var check = true;
-               if (jQuery('#newPassword').val() === '' || jQuery('#newPassword').val() ==='undefined'){
-                   jQuery('.errorStatus').html('Something went wrong! Please check again.')
-                   jQuery('.field-reset').css('border','solid 1px red');
-                   check = false;
-               }
-                if (jQuery('#confirm_change').val() === '' || jQuery('#confirm_change').val() ==='undefined'){
+                if (jQuery('#newPassword').val() === '' || jQuery('#newPassword').val() === 'undefined') {
                     jQuery('.errorStatus').html('Something went wrong! Please check again.')
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (jQuery('#newPassword').val() !== jQuery('#confirmChange').val()){
+                if (jQuery('#confirm_change').val() === '' || jQuery('#confirm_change').val() === 'undefined') {
+                    jQuery('.errorStatus').html('Something went wrong! Please check again.')
+                    jQuery('.field-reset').css('border', 'solid 1px red');
+                    check = false;
+                }
+                if (jQuery('#newPassword').val() !== jQuery('#confirmChange').val()) {
                     jQuery('.errorStatus').html('Your password and confirm do not match.');
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (check === true){
+                if (check === true) {
                     jQuery('.successStatus').html('Sending. Please wait!');
                     jQuery('#form-change-password').submit();
                 }
             });
             jQuery('#form-change-password').on('keyup', function () {
-                if (jQuery('#newPassword').val() !== ''){
+                if (jQuery('#newPassword').val() !== '') {
                     jQuery('.errorStatus').html('');
-                    jQuery('.field-reset').css('border','solid 2px green');
+                    jQuery('.field-reset').css('border', 'solid 2px green');
                 }
-                if (jQuery('#confirmChange').val() !== ''){
+                if (jQuery('#confirmChange').val() !== '') {
                     jQuery('.errorStatus').html('');
-                    jQuery('.field-reset').css('border','solid 2px green');
+                    jQuery('.field-reset').css('border', 'solid 2px green');
                 }
                 return true;
             });
         }
     }
     ,
-    validateFormUpdatePassword:function () {
-        if (jQuery('.update-password-wrapper').length){
+    validateFormUpdatePassword: function () {
+        if (jQuery('.update-password-wrapper').length) {
             jQuery('#submit-form-update').on('click', function () {
                 var check = true;
-                if (jQuery('#currentPassword_update').val() === '' || jQuery('#currentPassword_update').val() === 'undefined'){
+                if (jQuery('#currentPassword_update').val() === '' || jQuery('#currentPassword_update').val() === 'undefined') {
                     jQuery('.errorStatus').html('Something went wrong! Please check again.')
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (jQuery('#newPassword_update').val() === '' || jQuery('#newPassword_update').val() === 'undefined'){
+                if (jQuery('#newPassword_update').val() === '' || jQuery('#newPassword_update').val() === 'undefined') {
                     jQuery('.errorStatus').html('Something went wrong! Please check again.')
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (jQuery('#confirmUpdate').val() === '' || jQuery('#confirmUpdate').val() === 'undefined'){
+                if (jQuery('#confirmUpdate').val() === '' || jQuery('#confirmUpdate').val() === 'undefined') {
                     jQuery('.errorStatus').html('Something went wrong! Please check again.')
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (jQuery('#newPassword_update').val() !== jQuery('#confirmUpdate').val()){
+                if (jQuery('#newPassword_update').val() !== jQuery('#confirmUpdate').val()) {
                     jQuery('.errorStatus').html('Your password and confirm do not match.')
-                    jQuery('.field-reset').css('border','solid 1px red');
+                    jQuery('.field-reset').css('border', 'solid 1px red');
                     check = false;
                 }
-                if (check === true){
+                if (check === true) {
                     jQuery('.successStatus').html('Sending. Please wait!');
                     jQuery('#form-update-password').submit();
                 }
             });
             jQuery('#form-update-password').on('keyup', function () {
-                if (jQuery('#currentPassword_update').val() !== ''){
+                if (jQuery('#currentPassword_update').val() !== '') {
                     jQuery('.errorStatus').html('');
-                    jQuery('.field-reset').css('border','solid 2px green');
+                    jQuery('.field-reset').css('border', 'solid 2px green');
                 }
-                if (jQuery('#newPassword_update').val() !== ''){
+                if (jQuery('#newPassword_update').val() !== '') {
                     jQuery('.errorStatus').html('');
-                    jQuery('.field-reset').css('border','solid 2px green');
+                    jQuery('.field-reset').css('border', 'solid 2px green');
                 }
-                if (jQuery('#confirmUpdate').val() !== ''){
+                if (jQuery('#confirmUpdate').val() !== '') {
                     jQuery('.errorStatus').html('');
-                    jQuery('.field-reset').css('border','solid 2px green');
+                    jQuery('.field-reset').css('border', 'solid 2px green');
                 }
                 return true;
             });
-        } 
+        }
     }
 };
 var SwiperSlide = {
@@ -367,6 +367,25 @@ var Timer = {
         }, 1000);
     }
 };
+var Tooltip = {
+    showTooltip: function () {
+        if (jQuery('.result').length) {
+            $('[data-toggle="tooltip"]').tooltip();
+        }
+    }
+};
+var Custom = {
+    getHTLMTag: function () {
+        if (jQuery('.search-value').length) {
+            jQuery('.search-value').on('click', function () {
+                var key_word = jQuery(this).text();
+                jQuery('.search-field').val(key_word);
+                jQuery('#search-form').submit();
+            });
+        }
+    }
+    
+};
 window.onload = function () {
     Timer.countUpTimer("Oct 10, 2016 19:00:00", 'countup1');
 };
@@ -384,6 +403,10 @@ jQuery(document).ready(function () {
     Form.validateFormChangePassword();
     Form.validateFormUpdatePassword();
     // SwiperSlide.swiperMTPage();
+
+
+    Tooltip.showTooltip();
+    Custom.getHTLMTag();
 
 
 });
