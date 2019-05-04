@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service\AboutService;
 use App\Service\FavoriteService;
 use App\Service\GareliesServie;
+use App\Service\KeyService;
 use App\Service\PostService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

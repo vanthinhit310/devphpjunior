@@ -35,10 +35,10 @@
 
             <aside class="beau-sidebar">
                 <div id="search-2" class="beau-main-sidebar clearfix widget_search">
-                    <form  method="get" class="search-form" action="#">
+                    <form  method="get" class="search-form" action="{{route('process.search')}}">
                         <label>
                             <span class="screen-reader-text">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+                            <input type="text" class="search-field" placeholder="Search &hellip;" value="" name="search" title="Search for:" />
                         </label>
                         <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
                     </form>

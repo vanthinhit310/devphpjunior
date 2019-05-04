@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use CyrildeWit\EloquentViewable\Viewable;
 use CyrildeWit\EloquentViewable\Contracts\Viewable as ViewableContract;
 
+/**
+ * @method static where(string $string, string $string1, string $string2)
+ */
 class BlogPost extends Model implements ViewableContract
 {
     //

@@ -38,12 +38,8 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if ($exception instanceof Exception) {
+        if ($exception instanceof \Throwable) {
             $mytime = Carbon::now();
-//            Send error to email
-//            Mail::send('email.exception', ['error' => $exception->getMessage(),'time'=>$mytime], function ($m) use ($exception) {
-//                $m->to('vanthinh.34101997@gmail.com', 'Lê Văn Thịnh')->subject('Error: '. $exception->getMessage());
-//            });
             $text = "<b>Time:</b>" . $mytime . "\n" . "<b>Error: </b>" . $exception->getMessage();
 
             Telegram::sendMessage([

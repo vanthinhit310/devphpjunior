@@ -169,6 +169,7 @@ return [
         TCG\Voyager\VoyagerServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
+        Elasticquent\ElasticquentServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class,
+        'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
 
     ],
     // Export log

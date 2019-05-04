@@ -27,6 +27,7 @@ Route::group([
     Route::get('/get-new-password', 'PagesController@getChangePasswordPage')->name('change');
     Route::get('/update-new-password', 'PagesController@getUpdatePasswordPage')->name('update');
     Route::get('/create-new-log', 'PagesController@getCreateLogPage')->name('store_Log');
+    Route::get('/search-results', 'SearchController@getSearchResultPage')->name('searchPage');
 });
 Route::group([
     'as' => 'practice.'
@@ -53,6 +54,8 @@ Route::group([
     //Update password
     Route::post('password/update-new-password',
         'Auth\ChangePasswordController@updateNewPassword')->name('update-Password');
+    // Search form Post Details
+    Route::get('process_search', 'SearchController@create')->name('search');
 
 });
 
@@ -69,11 +72,16 @@ Route::group([
 });
 
 
-
 // Dev Test
-Route::get('dev/test','DevTestController@DevTest');
 
+Route::group([
+    'as' => 'test.'
+], function () {
+    Route::get('dev/test', 'DevTestController@DevTest')->name('');
+    Route::get('search-pages', 'DevTestController@index')->name('search');
+    Route::get('process-search', 'DevTestController@search')->name('search_function');
 
+});
 
 Auth::routes();
 
