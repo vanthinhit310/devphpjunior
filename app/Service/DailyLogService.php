@@ -35,7 +35,7 @@ class DailyLogService
 
     public function getLogDetails($id)
     {
-        $detailLog = DailyLog::findOrFail($id);
+        $detailLog = DailyLog::where('id',$id)->first();
         return $detailLog;
     }
 }

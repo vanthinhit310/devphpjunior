@@ -102,5 +102,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
     Route::group(['middleware' => 'admin.user'], function () {
         Route::get('exportListPosts', "Admin\\AdminController@exportListPosts")->name("exportListPosts");
+        Route::get('exportListLogs', "Admin\\AdminController@exportListLogs")->name("exportListLogs");
     });
 });

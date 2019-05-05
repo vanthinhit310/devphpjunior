@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 @extends('layouts.master')
 @section('content')
     <section class="log-detail-wrapper">
@@ -16,7 +17,7 @@
                                     <button><i class="fal fa-list-ul"></i> Return list
                                     </button>
                                 </a>
-                                <a href="javascript:;">
+                                <a href="{{route('extension.createPDFFile')}}?id={{$details->id}}">
                                     <button><i class="fal fa-file-pdf"></i> Export PDF
                                     </button>
                                 </a>
