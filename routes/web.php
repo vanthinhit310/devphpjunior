@@ -91,8 +91,8 @@ Route::group([
     'as' => 'test.'
 ], function () {
     Route::get('dev/test', 'DevTestController@DevTest')->name('');
-    Route::get('search-pages', 'DevTestController@index')->name('search');
-    Route::get('process-search', 'DevTestController@search')->name('search_function');
+    Route::get('test-pages', 'DevTestController@index')->name('test');
+    Route::post('upload-image', 'DevTestController@uploadImage')->name('upload');
 
 });
 

@@ -14,6 +14,7 @@
 <script src="{{asset('js/aos.js')}}"></script>
 <script src="{{asset('js/wow.min.js')}}"></script>
 <script src="{{asset('js/common.js?ver='.$time)}}"></script>
+<script src="{{asset('js/ajax.function.js?ver='.$time)}}"></script>
 <script src="{{asset('js/parallax.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 
