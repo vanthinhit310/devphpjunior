@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException;
+use Illuminate\Support\Facades\DB;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 class Handler extends ExceptionHandler
@@ -62,6 +63,9 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof TokenMismatchException) {
             return response()->redirect('login')->with('status', 'Token expired, please try again.');
+        }
+        if ($exception instanceof Exception) {
+            return response()->view('errors.404_custom', [], 404);
         }
         return parent::render($request, $exception);
     }

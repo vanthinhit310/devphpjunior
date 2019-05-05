@@ -1,0 +1,39 @@
+.log-detail-wrapper {
+    .container {
+        .content {
+            position: relative;
+            .title {
+                h2 {
+                    font-weight: bold;
+                    padding-bottom: 25px;
+                }
+                .info {
+                    .author {
+                        transform: translate(10%,10%);
+                        q {
+                            padding-right: 50px;
+                        }
+                    }
+                    .return-list {
+                        position: absolute;
+                        top: 85px;
+                        right: 0;
+                        transform: translate(0,-50%);
+                        a{
+                            color: #fff;
+                            button {
+                                border-radius: 10px;
+                            }
+                        }
+
+                    }
+                }
+            }
+            .detail-content {
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

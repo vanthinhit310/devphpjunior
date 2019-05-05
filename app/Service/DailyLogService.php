@@ -32,4 +32,10 @@ class DailyLogService
         $logs = DailyLog::orderBy('created_at','DESC')->limit(3)->get();
         return $logs;
     }
+
+    public function getLogDetails($id)
+    {
+        $detailLog = DailyLog::findOrFail($id);
+        return $detailLog;
+    }
 }

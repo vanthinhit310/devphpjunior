@@ -18,8 +18,5 @@
         <div class="extension messenger">
             <a href="javascript:;" title="Send messages to us"><i class="fab fa-facebook-messenger"></i></a>
         </div>
-        <div class="extension pdf">
-            <a href="{{route('extension.createPDFFile')}}" title="Download PDF file"><i class="fal fa-file-pdf"></i></a>
-        </div>
     </div>
 </section>

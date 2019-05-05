@@ -64,7 +64,7 @@ class DailyLogController extends Controller
             }
 
             $output .= '<div id="remove-row">
-                            <button id="btn-more" data-id="' . $post->id . '" class="nounderline btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" > Load More </button>
+                            <button id="btn-more" data-id="' . $post->id . '" class="nounderline btn-block mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ><i class="fal fa-arrow-alt-from-top"></i> Load More </button>
                         </div>';
 
             echo $output;

@@ -5,7 +5,7 @@
                 h2 {
                     font-family: cursive;
                     font-weight: bold;
-                    svg,i{
+                    svg, i {
                         color: green;
                     }
                 }
@@ -15,8 +15,6 @@
                     .each-log {
                         border-top: solid 1px #999;
                         padding: 15px 0;
-                        svg, i {
-                        }
                         h3.title {
                             font-size: 20px;
                             font-weight: bold;
@@ -31,9 +29,20 @@
                         }
                         .log-body {
                             text-align: justify;
-                            span{
+                            span {
                                 font-size: 17px;
                             }
+                        }
+                    }
+                    #remove-row {
+                        button#btn-more {
+                            border-radius: 10px;
+                        }
+                    }
+                    .notify-log{
+                        h2{
+                            font-family: cursive;
+                            font-weight: bold;
                         }
                     }
                 }

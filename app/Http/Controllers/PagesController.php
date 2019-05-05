@@ -91,4 +91,12 @@ class PagesController extends Controller
         $this->data['logs'] = $dailyLogService->getDailyLog();
         return view('log-daily.list-daily-log', $this->data);
     }
+
+    public function getLogDetailsPage($id = null, DailyLogService $service)
+    {
+        $details = $service->getLogDetails($id);
+        $this->data['titlePage'] = 'Log number #'.$details->id;
+        $this->data['details'] = $details;
+        return view('log-daily.log-detail', $this->data);
+    }
 }
