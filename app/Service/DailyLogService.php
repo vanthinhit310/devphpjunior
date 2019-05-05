@@ -29,7 +29,7 @@ class DailyLogService
 
     public function getDailyLog()
     {
-        $logs = DailyLog::orderBy('created_at','DESC')->limit(2)->get();
+        $logs = DailyLog::orderBy('created_at','DESC')->limit(3)->get();
         return $logs;
     }
 }

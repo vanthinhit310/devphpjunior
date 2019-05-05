@@ -50,14 +50,15 @@ class DailyLogController extends Controller
         if (!$posts->isEmpty()) {
             foreach ($posts as $post) {
                 $url = url('log/' . $post->id);
-                $body = substr(strip_tags($post->content), 0, 500);
-                $body .= strlen(strip_tags($post->content)) > 500 ? "..." : "";
+                $body = substr(strip_tags($post->content), 0, 100);
+                $body .= strlen(strip_tags($post->content)) > 100 ? "..." : "";
                 $output .= '<div class="each-log">
+                                <h3 class="title text-capitalize"><i class="fab fa-hotjar"></i> ' . $post->title . '</h3>
+                                <div class="log-body"><span>' . $body . '</span></div>
+                                <span class="author"><i class="fal fa-user-chart"></i> Write by : <strong>' . $post->private_author . '</strong></span>
+                                <span class="cre-date"><i class="fal fa-calendar-star"></i> <strong>' .$post->cre_date. '</strong></span>
                             <a href="' . $url . '">
-                                <h3 class="title text-capitalize"><i class="fab fa-hotjar"></i>' . $post->title . '</h3>
-                                <span>' . $body . '</span>
-                                <span class="author"><i class="fal fa-user-chart"></i> Write by :' . $post->private_author . '</span>
-                                <span class="read-more">Read more <i class="fal fa-angle-double-right"></i></span>
+                                <span class="read-more"><i class="fal fa-comment-dots"></i> Read more </span>
                             </a>
                         </div>';
             }

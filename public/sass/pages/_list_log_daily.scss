@@ -5,34 +5,34 @@
                 h2 {
                     font-family: cursive;
                     font-weight: bold;
+                    svg,i{
+                        color: green;
+                    }
                 }
             }
             .log {
                 .log-content {
                     .each-log {
-                        a {
-                            svg,i{
-
+                        border-top: solid 1px #999;
+                        padding: 15px 0;
+                        svg, i {
+                        }
+                        h3.title {
+                            font-size: 20px;
+                            font-weight: bold;
+                            font-style: oblique;
+                            line-height: 0;
+                            svg, i {
+                                color: red;
                             }
-                            h3.title {
-                                font-size: 20px;
-                                font-weight: bold;
-                                font-style: oblique;
-                                line-height: 0;
-                                svg,i{
-                                    color: red;
-                                }
-                            }
-                            span.author {
-                                padding: 0 40px;
-                                svg,i{
-
-                                }
-                            }
-                            span.read-more {
-                                svg,i{
-
-                                }
+                        }
+                        span {
+                            padding: 0 40px;
+                        }
+                        .log-body {
+                            text-align: justify;
+                            span{
+                                font-size: 17px;
                             }
                         }
                     }
