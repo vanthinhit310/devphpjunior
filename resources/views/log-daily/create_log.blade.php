@@ -4,7 +4,7 @@
             <div class="top-info">
                 <h3 class="text-uppercase text-center">Make your log daily for @if(isset($day)) {{$day}}.@endif</h3>
             </div>
-            <form action="{{route('process.storeLog')}}" method="post">
+            <form id="createLog" action="{{route('process.storeLog')}}" method="post">
                 @csrf
                 @if(isset($day))
                 <input type="hidden" value="{{$day}}" name="day">
@@ -39,8 +39,9 @@
                     </div>
                 </div>
                 <div class="button-process">
-                    <button type="submit" class="btn-log-form"><i class="fal fa-plus-octagon"></i> Create</button>
-                    <button type="button" class="btn-log-form"><i class="fal fa-sync-alt"></i> Refresh</button>
+                    <button type="submit" class="btn-log-form submit-create-log"><i class="fal fa-plus-octagon"></i> Create</button>
+                    <div style="display: none" id="create-log-loading" class="dot-loading"><img src="{{asset('images/dot.svg')}}" alt="Loading"></div>
+                    <button type="button" class="btn-log-form reset-create-log-form"><i class="fal fa-sync-alt"></i> Refresh</button>
                 </div>
             </form>
         </div>

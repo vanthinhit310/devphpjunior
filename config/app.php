@@ -171,6 +171,7 @@ return [
         Telegram\Bot\Laravel\TelegramServiceProvider::class,
         Elasticquent\ElasticquentServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -234,6 +235,7 @@ return [
         'Telegram'  => Telegram\Bot\Laravel\Facades\Telegram::class,
         'Es' => Elasticquent\ElasticquentElasticsearchFacade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
     // Export log

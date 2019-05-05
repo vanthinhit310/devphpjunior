@@ -62,7 +62,12 @@ Route::group([
 });
 
 
-
+//Extension route
+Route::group([
+    'as'=>'extension.'
+], function (){
+    Route::get('download-pdf','PDFController@index')->name('createPDFFile');
+});
 
 //Telegram bot
 Route::group([
@@ -75,9 +80,6 @@ Route::group([
     Route::post('/telegram/store-photo', 'TelegramBotController@storePhoto')->name('storePhoto');
 
 });
-
-
-
 
 
 // Dev Test
