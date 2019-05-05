@@ -19,6 +19,7 @@ class User extends \TCG\Voyager\Models\User
     protected $fillable = [
         'name',
         'email',
+        'avatar',
         'password',
         'remember_token',
         'token',
@@ -43,4 +44,7 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function getProfileUser(){
+        return $this->hasOne('App\Model\UserProfile');
+    }
 }

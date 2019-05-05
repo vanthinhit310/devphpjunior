@@ -1,33 +1,18 @@
-
 @import 'fonts';
-
 @import 'variables';
-
 @import 'reset';
-
 @import 'general';
-
 @import "plugin/capcha";
-
 @import "loading";
-
 @import "login/login";
-
 @import "login/reg";
-
 @import "login/getnewpass";
-
 @import "login/changePassword";
-
 @import "login/update-password";
-
 @import "pages/search_page";
-
 @import "pages/create_log_page";
-
 @import "pages/extension";
-
 @import "pages/list_log_daily";
-
 @import "pages/log-detail.blade";
+@import "pages/profile";
 

@@ -21,6 +21,7 @@ Route::group([
     Route::get('/about-page', 'PagesController@getAboutPages')->name('about');
     Route::get('/blog-post', 'PagesController@getBlogPages')->name('blog');
     Route::get('/contact-us', 'PagesController@getContactPages')->name('contacts');
+    Route::get('/profile/{id?}', 'PagesController@getProfilePages')->name('profile')->middleware('auth');
     Route::get('/post/{category?}/{slug?}', 'PagesController@getPostPages')->name('post');
     Route::get('/thank-you', 'HomeController@getIndex')->name('thank-you');
     Route::get('/reset-password', 'PagesController@getResetPasswordPage')->name('reset');
@@ -62,6 +63,8 @@ Route::group([
     Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog')->middleware('auth');
     //Load data from DB with  Ajax
     Route::post('load-data-logs','DailyLogController@loadDataAjax' )->middleware('auth');
+    //Update Profile
+    Route::post('update-profile','ProfileController@updateProfileUser' )->name('updateProfile')->middleware('auth');
 
 });
 

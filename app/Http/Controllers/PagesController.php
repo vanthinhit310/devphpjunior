@@ -8,6 +8,7 @@ use App\Service\FavoriteService;
 use App\Service\GareliesServie;
 use App\Service\KeyService;
 use App\Service\PostService;
+use App\Service\UserService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -104,5 +105,14 @@ class PagesController extends Controller
                 'error' => 'Not found! We can\'t find any log with this id.'
             ]);
         }
+    }
+
+    public function getProfilePages($id = null,UserService $service)
+    {
+        $user = $service->getUserByID($id);
+        $this->data['titlePage'] = 'Profile/'.$user->name;
+        $this->data['user'] = $user;
+        $this->data['profile'] = $service->getProfileUser();
+        return view('users.profile', $this->data);
     }
 }

@@ -80,6 +80,8 @@
                                     {{\Illuminate\Support\Facades\Auth::user()->name}}
                                 </a>
                                 <ul class="sub-menu">
+                                    <li class="menu-item"><a href="{{route('app.profile')}}\{{\Illuminate\Support\Facades\Auth::user()->id}}"><i class="fal fa-address-card"></i>
+                                            Your profile</a></li>
                                     <li class="menu-item"><a href="{{route('process.logout')}}"><i
                                                 class="fal fa-sign-out-alt"></i> Sign out</a></li>
                                     <li class="menu-item"><a href="{{route('app.update')}}"><i

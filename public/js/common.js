@@ -443,6 +443,14 @@ var Custom = {
                 });
             });
         }
+    },
+    selectCustom:function () {
+        if (jQuery('.select-address').length){
+            jQuery('select').selectize({
+                create: true,
+                sortField: 'text'
+            });
+        }
     }
 
 };
@@ -494,6 +502,7 @@ jQuery(document).ready(function () {
     Custom.getHTLMTag();
     Custom.scrollToTopPage();
     Custom.loadMoreDataAjax();
+    Custom.selectCustom();
 
     CKEditor.getEditorLogPage();
 

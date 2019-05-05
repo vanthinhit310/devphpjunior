@@ -7,10 +7,12 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/selectize.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css?ver='.$time)}}">
 <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/aos.css')}}"/>
