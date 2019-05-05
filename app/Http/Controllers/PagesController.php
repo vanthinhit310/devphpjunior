@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service\AboutService;
+use App\Service\DailyLogService;
 use App\Service\FavoriteService;
 use App\Service\GareliesServie;
 use App\Service\KeyService;
@@ -82,5 +83,12 @@ class PagesController extends Controller
         $this->data['titlePage'] = 'Log #'.$currentTime->format('d.m.Y');
         $this->data['day'] = $currentTime->format('d/m/Y');
         return view('log-daily.index-create-log', $this->data);
+    }
+
+    public function getListLogDailyPage(DailyLogService $dailyLogService)
+    {
+        $this->data['titlePage'] = 'Views all log';
+        $this->data['logs'] = $dailyLogService->getDailyLog();
+        return view('log-daily.list-daily-log', $this->data);
     }
 }

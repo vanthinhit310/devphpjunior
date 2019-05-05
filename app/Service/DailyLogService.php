@@ -26,4 +26,10 @@ class DailyLogService
         ]);
         return $logs;
     }
+
+    public function getDailyLog()
+    {
+        $logs = DailyLog::orderBy('created_at','DESC')->limit(2)->get();
+        return $logs;
+    }
 }

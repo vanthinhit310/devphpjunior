@@ -417,6 +417,32 @@ var Custom = {
                 });
             });
         }
+    },
+    loadMoreDataAjax: function () {
+        if (jQuery('.list-log-daily-wrapper').length) {
+            jQuery(document).on('click', '#btn-more', function () {
+                var id = jQuery(this).data('id');
+                jQuery("#btn-more").html("Loading....");
+                jQuery.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: 'load-data-logs',
+                    method: "POST",
+                    data: {id: id},
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== '') {
+                            jQuery('#remove-row').remove();
+                            jQuery('#load-data').append(data);
+                        }
+                        else {
+                            jQuery('#btn-more').html("No Data");
+                        }
+                    }
+                });
+            });
+        }
     }
 
 };
@@ -467,6 +493,7 @@ jQuery(document).ready(function () {
 
     Custom.getHTLMTag();
     Custom.scrollToTopPage();
+    Custom.loadMoreDataAjax();
 
     CKEditor.getEditorLogPage();
 

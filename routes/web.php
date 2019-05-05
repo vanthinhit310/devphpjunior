@@ -28,6 +28,7 @@ Route::group([
     Route::get('/update-new-password', 'PagesController@getUpdatePasswordPage')->name('update')->middleware('auth');
     Route::get('/store-new-log-daily', 'PagesController@getCreateLogPage')->name('log-index')->middleware('auth');
     Route::get('/search-results', 'SearchController@getSearchResultPage')->name('searchPage');
+    Route::get('/log-daily', 'PagesController@getListLogDailyPage')->name('logDailyPage');
 });
 Route::group([
     'as' => 'practice.'
@@ -58,15 +59,17 @@ Route::group([
     Route::get('process_search', 'SearchController@create')->name('search');
     //Create new Log
     Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog')->middleware('auth');
+    //
+    Route::post('load-data-logs','DailyLogController@loadDataAjax' );
 
 });
 
 
 //Extension route
 Route::group([
-    'as'=>'extension.'
-], function (){
-    Route::get('download-pdf','PDFController@index')->name('createPDFFile');
+    'as' => 'extension.'
+], function () {
+    Route::get('download-pdf', 'PDFController@index')->name('createPDFFile');
 });
 
 //Telegram bot
