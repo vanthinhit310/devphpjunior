@@ -35,7 +35,7 @@ Route::group([
 Route::group([
     'as' => 'practice.'
 ], function () {
-    Route::get('/mai-thanh', 'PagesController@getMaiThanhPages')->name('maithanh');
+
 });
 
 Route::group([
@@ -66,9 +66,7 @@ Route::group([
     //Update Profile
     Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile')->middleware('auth');
 
-    //Get district and ward.
-    Route::get('get-list-district','DevTestController@getDistrictBelongToCity');
-    Route::get('get-list-ward','DevTestController@getWardOfDistrict');
+
 
 });
 
@@ -102,6 +100,9 @@ Route::group([
     Route::post('upload-image', 'DevTestController@uploadImage')->name('upload');
     Route::get('get-district', 'DevTestController@getDistrictBelongToCity');
     Route::get('get-ward', 'DevTestController@getWardOfDistrict');
+    //Get district and ward.
+    Route::get('get-district-profile','AddressController@getDistrict');
+    Route::get('get-ward-profile','AddressController@getWards');
 
 });
 

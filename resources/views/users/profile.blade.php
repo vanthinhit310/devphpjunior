@@ -22,7 +22,6 @@
                             <label for="emailProfile"><i class="fal fa-mailbox"></i> Email:</label>
                             <input type="text" name="email" readonly="readonly" id="emailProfile"
                                    value="{{\Illuminate\Support\Facades\Auth::user()->email}}">
-
                             @if(isset($profile))
                                 <label for="birthDay"><i class="fal fa-birthday-cake"></i> Birth day:</label>
                                 <input type="text" name="birthDay" id="birthDay" value="{{$profile->birth_day}}">
@@ -31,7 +30,7 @@
                                 <input type="text" name="phone" id="phoneProfile" value="{{$profile->phone}}">
 
                                 <div class="row address-select-custom">
-                                    <select name="city" id="city" class="custom-select">
+                                    <select name="city" id="city_profile" class="custom-select">
                                         <option value=""> City</option>
                                         @if(isset($cities))
                                             @foreach($cities as $city)
@@ -40,11 +39,11 @@
                                         @endif
                                     </select>
 
-                                    <select name="district" id="district" class="custom-select">
+                                    <select name="district" id="district_profile" class="custom-select">
                                         <option value=""> District</option>
                                     </select>
 
-                                    <select name="ward" id="ward" class="custom-select">
+                                    <select name="ward" id="ward_profile" class="custom-select">
                                         <option value=""> Ward</option>
                                     </select>
                                 </div>
@@ -67,7 +66,7 @@
                                 <input type="text" name="phone" id="phoneProfile">
 
                                 <div class="row address-select-custom">
-                                    <select name="city" id="city" class="custom-select">
+                                    <select name="city" id="city_profile" class="custom-select">
                                         <option value=""> City</option>
                                         @if(isset($cities))
                                             @foreach($cities as $city)
@@ -76,11 +75,11 @@
                                         @endif
                                     </select>
 
-                                    <select name="district" id="district" class="custom-select">
+                                    <select name="district" id="district_profile" class="custom-select">
                                         <option value=""> District</option>
                                     </select>
 
-                                    <select name="ward" id="ward" class="custom-select">
+                                    <select name="ward" id="ward_profile" class="custom-select">
                                         <option value=""> Ward</option>
                                     </select>
                                 </div>

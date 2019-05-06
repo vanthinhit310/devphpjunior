@@ -54,14 +54,7 @@ class PagesController extends Controller
         $this->data['titlePage'] = $post->title;
         return view('post-details.index', $this->data);
     }
-
-    public function getMaiThanhPages(GareliesServie $gareliesServie)
-    {
-        $this->data['titlePage'] = 'Ngắm vợ yêu';
-        $this->data['garellies'] = $gareliesServie->getGarellies();
-        return view('practices.maithanh.index', $this->data);
-    }
-
+    
     public function getResetPasswordPage()
     {
         $this->data['titlePage'] = 'Get new password';
@@ -111,9 +104,10 @@ class PagesController extends Controller
 
     public function getProfilePages(UserService $service, AddressService $address)
     {
-        $this->data['titlePage'] = 'Profile/'.Auth::user()->name;
-        $this->data['profile'] = $service->getProfileUser();
-        $this->data['cities'] = $address->getAllCities();
-        return view('users.profile', $this->data);
+        $param = [];
+        $param['titlePage'] = 'Profile/'.Auth::user()->name;
+        $param['profile'] = $service->getProfileUser();
+        $param['cities'] = $address->getAllCities();
+        return view('users.profile', $param);
     }
 }

@@ -380,32 +380,6 @@ var SwiperSlide = {
 
     }
 };
-var Timer = {
-    countUpTimer: function (countFrom, id) {
-        countFrom = new Date(countFrom).getTime();
-        var now = new Date(),
-            countFrom = new Date(countFrom),
-            timeDifference = (now - countFrom);
-
-        var secondsInADay = 60 * 60 * 1000 * 24,
-            secondsInAHour = 60 * 60 * 1000;
-
-        days = Math.floor(timeDifference / (secondsInADay));
-        hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour));
-        mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000));
-        secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000);
-        if (jQuery('#countup1').length) {
-            document.getElementById('day').innerHTML = days;
-            document.getElementById('hour').innerHTML = hours;
-            document.getElementById('minutes').innerHTML = mins;
-            document.getElementById('seconds').innerHTML = secs;
-        }
-        clearTimeout(Timer.countUpTimer.interval);
-        Timer.countUpTimer.interval = setTimeout(function () {
-            Timer.countUpTimer(countFrom, id);
-        }, 1000);
-    }
-};
 var Tooltip = {
     showTooltip: function () {
         if (jQuery('.result').length) {
@@ -482,7 +456,7 @@ var CKEditor = {
     }
 };
 window.onload = function () {
-    Timer.countUpTimer("Oct 10, 2016 19:00:00", 'countup1');
+
 };
 
 jQuery(document).ready(function () {
@@ -499,11 +473,9 @@ jQuery(document).ready(function () {
     Form.validateFormChangePassword();
     Form.validateFormUpdatePassword();
     Form.resetFormCreateLog();
-    // SwiperSlide.swiperMTPage();
 
 
     Tooltip.showTooltip();
-
 
     Custom.getHTLMTag();
     Custom.scrollToTopPage();

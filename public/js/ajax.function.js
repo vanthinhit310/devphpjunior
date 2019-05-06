@@ -1,11 +1,11 @@
 var Address = {
-    getListDistrict: function () {
-        if (jQuery('.address-select-custom').length) {
-            jQuery('#city').on('change', function () {
-                jQuery('#district').children('option').remove();
+    getListDistrictProfile: function () {
+        if (jQuery('.basic-info').length) {
+            jQuery('#city_profile').on('change', function () {
+                jQuery('#district_profile').children('option').remove();
                 var cityValue = jQuery(this).val();
                 jQuery.ajax({
-                    url: 'get-list-district',
+                    url: 'get-district-profile',
                     data: {
                         id: cityValue
                     },
@@ -13,7 +13,7 @@ var Address = {
                     success: function (data) {
                         var array_data = data.districts;
                         array_data.forEach(function (element) {
-                            jQuery('#district').append('<option value="'+element.id+'" selected="selected">'+element.name+'</option>');
+                            jQuery('#district_profile').append('<option value="'+element.id+'" selected="selected">'+element.name+'</option>');
                         });
                     },
                     error: function (data) {
@@ -24,13 +24,13 @@ var Address = {
             });
         }
     },
-    getListWard:function () {
-        if (jQuery('.address-select-custom').length){
-            jQuery('#district').on('change', function () {
-                jQuery('#ward').children('option').remove();
+    getListWardProfile:function () {
+        if (jQuery('.basic-info').length){
+            jQuery('#district_profile').on('change', function () {
+                jQuery('#ward_profile').children('option').remove();
                 var districtValue = jQuery(this).val();
                 jQuery.ajax({
-                    url: 'get-list-ward',
+                    url: 'get-ward-profile',
                     data: {
                         id: districtValue
                     },
@@ -38,7 +38,7 @@ var Address = {
                     success: function (data) {
                         var array_data = data.wards;
                         array_data.forEach(function (element) {
-                            jQuery('#ward').append('<option value="'+element.id+'" selected="selected">'+element.name+'</option>');
+                            jQuery('#ward_profile').append('<option value="'+element.id+'" selected="selected">'+element.name+'</option>');
                         });
                     },
                     error: function (data) {
@@ -106,8 +106,8 @@ jQuery(document).ready(function () {
 });
 
 window.onload = function () {
-    Address.getListDistrict();
-    Address.getListWard();
-    // Address.getListDistrictTest();
-    // Address.getListWardTest();
+    Address.getListDistrictProfile();
+    Address.getListWardProfile();
+    Address.getListDistrictTest();
+    Address.getListWardTest();
 };

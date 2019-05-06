@@ -61,8 +61,6 @@
                                 <a
                                     href="javascript:;">Project.<span class="caret"></span></a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item"><a href="{{route('practice.maithanh')}}"><span
-                                                class='resp-nav-gap'></span>Vợ yêu</a></li>
                                     <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Log
                                             daily's
                                             <i class="fal fa-caret-right"></i></a>
@@ -105,8 +103,6 @@
                                 <a
                                     href="javascript:;">Project.<span class="caret"></span></a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item"><a href="{{route('practice.maithanh')}}"><span
-                                                class='resp-nav-gap'></span>Vợ yêu</a></li>
                                     <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
