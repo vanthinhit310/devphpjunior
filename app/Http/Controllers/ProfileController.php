@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
 use App\Model\UserProfile;
+use App\Service\AddressService;
 use App\Service\ImgurService;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+
 class ProfileController extends Controller
 {
     //
@@ -17,9 +21,9 @@ class ProfileController extends Controller
         if (!empty($datas['image'])) {
             $image = $datas['image'];
             $imageUrl = ImgurService::uploadImage($image->getRealPath());
-            $str = substr($imageUrl,20,7);
-            $str = $str.'b';
-            $urlImage = 'https://i.imgur.com/'.$str.'.jpg';
+            $str = substr($imageUrl, 20, 7);
+            $str = $str . 'b';
+            $urlImage = 'https://i.imgur.com/' . $str . '.jpg';
             $user->update([
                 'name' => $datas['fullName'],
                 'avatar' => $urlImage
@@ -63,6 +67,51 @@ class ProfileController extends Controller
                 'error' => $throwable->getMessage()
 //                'devMessage' => $throwable->getMessage()
             ]);
+        }
+    }
+
+
+    public function getDistrictBelongToCity(Request $request, AddressService $service)
+    {
+        $city_id = $request->id;
+        $districts = $service->getDistrictOfCity($city_id);
+        try {
+            if (!empty($districts)) {
+                return response()->json([
+                    'districts' => $districts
+                ])->setStatusCode(Response::HTTP_OK);
+            } else {
+                return response()->json([
+                    'Error' => 'Can\'t get data of this city at the moment. Please again!'
+                ])->setStatusCode(Response::HTTP_BAD_REQUEST);
+            }
+
+        } catch (\Throwable $throwable) {
+            return response()->json([
+                'Error' => 'Unknown error! Please try later.'
+            ])->setStatusCode(Response::HTTP_BAD_REQUEST);
+        }
+    }
+
+    public function getWardOfDistrict(Request $request, AddressService $service)
+    {
+        $district_id = $request->id;
+        $wards = $service->getWardOfDistrict($district_id);
+        try {
+            if (!empty($wards)) {
+                return response()->json([
+                    'wards' => $wards
+                ])->setStatusCode(Response::HTTP_OK);
+            } else {
+                return response()->json([
+                    'Error' => 'Can\'t get data of this city at the moment. Please again!'
+                ])->setStatusCode(Response::HTTP_BAD_REQUEST);
+            }
+
+        } catch (\Throwable $throwable) {
+            return response()->json([
+                'Error' => 'Unknown error! Please try later.'
+            ])->setStatusCode(Response::HTTP_BAD_REQUEST);
         }
     }
 }

@@ -66,6 +66,10 @@ Route::group([
     //Update Profile
     Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile')->middleware('auth');
 
+    //Get district and ward.
+    Route::get('get-list-district','DevTestController@getDistrictBelongToCity');
+    Route::get('get-list-ward','DevTestController@getWardOfDistrict');
+
 });
 
 //Extension route
@@ -95,11 +99,14 @@ Route::group([
 ], function () {
     Route::get('dev/test', 'DevTestController@DevTest')->name('');
     Route::get('test-pages', 'DevTestController@index')->name('test');
-    Route::post('upload-image', 'DevTestController@uploadImage')->name('upload')->middleware('check_access_token');
-//https://dev.phpjunior.com/imgur/callback
-    Route::get('imgur/callback', 'DevTestController@getAuth')->name('auth');
-    Route::post('/saveAuth', 'DevTestController@saveAuth')->name('saveAuth');
+    Route::post('upload-image', 'DevTestController@uploadImage')->name('upload');
+    Route::get('get-district', 'DevTestController@getDistrictBelongToCity');
+    Route::get('get-ward', 'DevTestController@getWardOfDistrict');
+
 });
+
+//
+
 
 Auth::routes();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Service\AboutService;
+use App\Service\AddressService;
 use App\Service\DailyLogService;
 use App\Service\FavoriteService;
 use App\Service\GareliesServie;
@@ -11,6 +12,7 @@ use App\Service\PostService;
 use App\Service\UserService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -107,12 +109,11 @@ class PagesController extends Controller
         }
     }
 
-    public function getProfilePages($id = null,UserService $service)
+    public function getProfilePages(UserService $service, AddressService $address)
     {
-        $user = $service->getUserByID($id);
-        $this->data['titlePage'] = 'Profile/'.$user->name;
-        $this->data['user'] = $user;
+        $this->data['titlePage'] = 'Profile/'.Auth::user()->name;
         $this->data['profile'] = $service->getProfileUser();
+        $this->data['cities'] = $address->getAllCities();
         return view('users.profile', $this->data);
     }
 }

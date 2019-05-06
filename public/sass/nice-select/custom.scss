@@ -1,0 +1,30 @@
+.profile-wrapper {
+    .container {
+        .profile-info {
+            .address-select-custom {
+                margin: 15px 0;
+                .custom-select {
+                    width: 150px;
+                    margin-right: 10px;
+                    option {
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.test-content{
+    margin-top: 100px;
+    .row{
+        margin: 15px 0;
+        .custom-select {
+            width: 150px;
+            margin-right: 10px;
+            option {
+            }
+        }
+    }
+
+}

@@ -12,6 +12,9 @@
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/jquery.mCustomScrollbar.min.js')}}"></script>
 <script src="{{asset('js/aos.js')}}"></script>
+<script src="{{asset('js/plugins/niceSelect/fastclick.js')}}"></script>
+<script src="{{asset('js/plugins/niceSelect/jquery.nice-select.js')}}"></script>
+<script src="{{asset('js/plugins/niceSelect/prism.js')}}"></script>
 <script src="{{asset('js/wow.min.js')}}"></script>
 <script src="{{asset('js/common.js?ver='.$time)}}"></script>
 <script src="{{asset('js/ajax.function.js?ver='.$time)}}"></script>
