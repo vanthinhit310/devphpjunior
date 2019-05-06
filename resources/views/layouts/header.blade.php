@@ -78,7 +78,7 @@
                             <li class="menu-item"><a href="{{route('app.contacts')}}">Contact.</a></li>
                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
                                 <a
-                                    href="javascript:;"><i class="fal fa-user-secret"></i>
+                                    href="javascript:;">
                                     {{\Illuminate\Support\Facades\Auth::user()->name}}
                                 </a>
                                 <ul class="sub-menu">
@@ -93,7 +93,7 @@
                                             Change password</a></li>
                                 </ul>
                             </li>
-                            <div class="header-avatar"><a href=""><img src="{{Auth::user()->avatar}}" alt=""></a></div>
+                            <div class="header-avatar"><a href="{{route('app.profile')}}\{{\Illuminate\Support\Facades\Auth::user()->id}}"><img class="img-fluid" src="{{Auth::user()->avatar}}" alt=""></a></div>
                         </ul>
                     @else
                         <ul id="menu-main-menu-1" class="menu">

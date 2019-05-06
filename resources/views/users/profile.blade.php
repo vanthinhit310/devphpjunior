@@ -61,7 +61,8 @@
                             <div class="submit-profile">
                                 <button type="submit"><i class="fal fa-user-edit"></i> Update Profile</button>
                             </div>
-                            @if ($errors->any())
+                            <div style="display: none" id="profile-loading" class="dot-loading"><img src="{{asset('images/dot.svg')}}" alt="Loading"></div>
+                        @if ($errors->any())
                                 <div class="error-zone">
                                     <ul>
                                         @foreach ($errors->all() as $error)

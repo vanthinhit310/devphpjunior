@@ -62,9 +62,9 @@ Route::group([
     //Create new Log
     Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog')->middleware('auth');
     //Load data from DB with  Ajax
-    Route::post('load-data-logs','DailyLogController@loadDataAjax' )->middleware('auth');
+    Route::post('load-data-logs', 'DailyLogController@loadDataAjax')->middleware('auth');
     //Update Profile
-    Route::post('update-profile','ProfileController@updateProfileUser' )->name('updateProfile')->middleware('auth');
+    Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile')->middleware('auth');
 
 });
 
@@ -95,8 +95,10 @@ Route::group([
 ], function () {
     Route::get('dev/test', 'DevTestController@DevTest')->name('');
     Route::get('test-pages', 'DevTestController@index')->name('test');
-    Route::post('upload-image', 'DevTestController@uploadImage')->name('upload');
-
+    Route::post('upload-image', 'DevTestController@uploadImage')->name('upload')->middleware('check_access_token');
+//https://dev.phpjunior.com/imgur/callback
+    Route::get('imgur/callback', 'DevTestController@getAuth')->name('auth');
+    Route::post('/saveAuth', 'DevTestController@saveAuth')->name('saveAuth');
 });
 
 Auth::routes();

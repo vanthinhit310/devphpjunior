@@ -114,6 +114,19 @@ var Loading = {
             }
         }
     },
+    showProfileLoading: function () {
+    if (jQuery('.profile-wrapper').length) {
+        jQuery('.submit-profile').on('click', function () {
+            var e = document.getElementById('profile-loading');
+            if (e.style.display === 'block') {
+                e.style.display = 'none';
+            }
+            else {
+                e.style.display = 'block';
+            }
+        });
+    }
+}
 };
 var Menu = {
     activeMenu: function () {
@@ -444,8 +457,8 @@ var Custom = {
             });
         }
     },
-    selectCustom:function () {
-        if (jQuery('.select-address').length){
+    selectCustom: function () {
+        if (jQuery('.select-address').length) {
             jQuery('select').selectize({
                 create: true,
                 sortField: 'text'
@@ -484,6 +497,7 @@ jQuery(document).ready(function () {
     ValidateFrom.contactForm();
 
     Loading.hideLoading();
+    Loading.showProfileLoading();
 
     Menu.activeMenu();
 

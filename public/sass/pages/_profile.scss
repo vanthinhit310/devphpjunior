@@ -38,6 +38,12 @@
                     border-radius: 10px;
                 }
             }
+            #profile-loading{
+                max-width: 15%;
+                position: absolute;
+                bottom: 15px;
+                right: 40%;
+            }
             .error-zone{
                 transform: translate(25%,25%);
             }

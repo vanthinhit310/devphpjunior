@@ -1,4 +1,4 @@
-html,body {
+html, body {
     overflow-x: hidden;
     .content {
         @media(max-width: 767px) {
@@ -51,11 +51,22 @@ ul.pagination {
 
     }
 }
-
 .ck-editor__editable_inline {
     min-height: 200px !important;
 }
-
-.menu-main-menu-1{
-    
+#menu-main-menu-1 {
+    .header-avatar {
+        border: 1px solid #999;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 20px;
+        right: 0;
+        border-radius: 50%;
+        a {
+            img {
+                border-radius: 50%;
+            }
+        }
+    }
 }
