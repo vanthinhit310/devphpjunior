@@ -60,11 +60,11 @@ Route::group([
     // Search form Post Details
     Route::get('process_search', 'SearchController@create')->name('search');
     //Create new Log
-    Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog')->middleware('auth');
+    Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog');
     //Load data from DB with  Ajax
     Route::post('load-data-logs', 'DailyLogController@loadDataAjax')->middleware('auth');
     //Update Profile
-    Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile')->middleware('auth');
+    Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile');
 
 
 

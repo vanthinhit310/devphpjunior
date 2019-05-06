@@ -54,7 +54,7 @@ class PagesController extends Controller
         $this->data['titlePage'] = $post->title;
         return view('post-details.index', $this->data);
     }
-    
+
     public function getResetPasswordPage()
     {
         $this->data['titlePage'] = 'Get new password';

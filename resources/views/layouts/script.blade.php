@@ -103,5 +103,5 @@
 <script src="{{asset('js/vendor/tilt/tilt.jquery.min.js')}}"></script>
 <script src="{{asset('js/ckeditor.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-<script src="{{asset('js/ajax.function.js?ver='.$time)}}"></script>
+<script src="{{asset('ajax-function.js')}}"></script>
 
