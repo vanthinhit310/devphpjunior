@@ -14,9 +14,9 @@ class DevTestController extends Controller
 {
     public function DevTest()
     {
-
-        $date = Carbon::now();
-        echo $date->format('d.m.Y');
+        $image = 'https://i.imgur.com/3xWUC3z.jpg';
+        $str = substr($image,20,7);
+        echo ($str);
     }
 
     public function index()

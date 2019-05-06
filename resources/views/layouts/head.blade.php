@@ -7,7 +7,6 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-<link rel="stylesheet" href="{{asset('css/selectize.css')}}">
 <link rel="stylesheet" href="{{asset('css/app.css?ver='.$time)}}">
 <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/bootstrap-select.min.css')}}">

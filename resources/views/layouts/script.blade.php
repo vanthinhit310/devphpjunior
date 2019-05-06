@@ -5,7 +5,6 @@
 <!-- Scripts -->
 <script src="{{asset('js/jquery.3.3.1.min.js?ver='.$time)}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
-<script src="{{asset('js/selectize.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('js/swiper.min.js')}}"></script>

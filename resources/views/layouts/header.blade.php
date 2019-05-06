@@ -1,5 +1,4 @@
 <section class="header-wrapper">
-
     <div id="mobile-menu-container">
         <div id="mobile-menu-wrapper" class="mobile-menu">
             <ul id="menu-main-menu" class="menu">
@@ -64,11 +63,14 @@
                                 <ul class="sub-menu">
                                     <li class="menu-item"><a href="{{route('practice.maithanh')}}"><span
                                                 class='resp-nav-gap'></span>Vợ yêu</a></li>
-                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Log daily's
+                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Log
+                                            daily's
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item"><a href="{{route('app.log-index')}}"><i class="fal fa-blog"></i> Create</a></li>
-                                            <li class="menu-item"><a href="{{route('app.logDailyPage')}}"><i class="fal fa-clipboard-list-check"></i> List</a></li>
+                                            <li class="menu-item"><a href="{{route('app.log-index')}}"><i
+                                                        class="fal fa-blog"></i> Create</a></li>
+                                            <li class="menu-item"><a href="{{route('app.logDailyPage')}}"><i
+                                                        class="fal fa-clipboard-list-check"></i> List</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -80,7 +82,9 @@
                                     {{\Illuminate\Support\Facades\Auth::user()->name}}
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item"><a href="{{route('app.profile')}}\{{\Illuminate\Support\Facades\Auth::user()->id}}"><i class="fal fa-address-card"></i>
+                                    <li class="menu-item"><a
+                                            href="{{route('app.profile')}}\{{\Illuminate\Support\Facades\Auth::user()->id}}"><i
+                                                class="fal fa-address-card"></i>
                                             Your profile</a></li>
                                     <li class="menu-item"><a href="{{route('process.logout')}}"><i
                                                 class="fal fa-sign-out-alt"></i> Sign out</a></li>
@@ -89,6 +93,7 @@
                                             Change password</a></li>
                                 </ul>
                             </li>
+                            <div class="header-avatar"><a href=""><img src="{{Auth::user()->avatar}}" alt=""></a></div>
                         </ul>
                     @else
                         <ul id="menu-main-menu-1" class="menu">

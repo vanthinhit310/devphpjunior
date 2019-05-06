@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Model\UserProfile;
 use App\Service\ImgurService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class ProfileController extends Controller
 {
     //
-    public function updateProfileUser(Request $request)
+    public function updateProfileUser(ProfileRequest $request)
     {
         $datas = $request->all();
         $user = Auth::user();
         //        upload hình ảnh và lấy về đường dẫn
-        if (!empty($datas['imageProfile'])) {
-            $image = $datas['imageProfile'];
+        if (!empty($datas['image'])) {
+            $image = $datas['image'];
             $imageUrl = ImgurService::uploadImage($image->getRealPath());
+            $str = substr($imageUrl,20,7);
+            $str = $str.'b';
+            $urlImage = 'https://i.imgur.com/'.$str.'.jpg';
             $user->update([
                 'name' => $datas['fullName'],
-                'avatar' => $imageUrl
+                'avatar' => $urlImage
             ]);
         } else {
             $user->update([
