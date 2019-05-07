@@ -1,3 +1,6 @@
+<script>
+    var get_district_url = '{{route('test.get-district-profile')}}'
+</script>
 @extends('layouts.master')
 @section('content')
     <section class="profile-wrapper">

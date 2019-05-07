@@ -5,7 +5,7 @@ var Address = {
                 jQuery('#district_profile').children('option').remove();
                 var cityValue = jQuery(this).val();
                 jQuery.ajax({
-                    url: 'get-district-profile',
+                    url: get_district_url,
                     data: {
                         id: cityValue
                     },
@@ -30,7 +30,7 @@ var Address = {
                 jQuery('#ward_profile').children('option').remove();
                 var districtValue = jQuery(this).val();
                 jQuery.ajax({
-                    url: 'get-ward-profile',
+                    url: '/get-ward-profile',
                     data: {
                         id: districtValue
                     },

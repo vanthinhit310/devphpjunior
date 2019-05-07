@@ -101,8 +101,8 @@ Route::group([
     Route::get('get-district', 'DevTestController@getDistrictBelongToCity');
     Route::get('get-ward', 'DevTestController@getWardOfDistrict');
     //Get district and ward.
-    Route::get('get-district-profile','AddressController@getDistrict');
-    Route::get('get-ward-profile','AddressController@getWards');
+    Route::get('get-district-profile','AddressController@getDistrict')->name('get-district-profile');
+    Route::get('get-ward-profile','AddressController@getWards')->name('get-ward-profile');
 
 });
 
