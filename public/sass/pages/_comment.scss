@@ -1,0 +1,48 @@
+.comment-pages-wrapper {
+    background-color: #f6f6f7;
+    .container {
+        h3 {}
+        .comment {
+            border: solid 1px #e8e1e1;
+            border-radius: 3px;
+            background-color: #fff;
+            padding: 10px;
+            .top-content {
+                a {
+                    color: black;
+                    font-size: 15px;
+                    &:hover {
+                        color: #e8e1e1;
+                    }
+                }
+                hr {
+                    color: #e8e1e1;
+                }
+            }
+            .center-content {
+                .avatar {
+                    img {
+                        border-radius: 50%;
+                        width: 35px;
+                        height: 35px;
+                        margin: 5px;
+                    }
+                }
+                .comment-content {
+                    textarea {
+                        width: 100%;
+                        border: solid 2px #e8e1e1;
+                        margin: 15px 0;
+                    }
+                }
+            }
+            .publish-comment{
+                text-align: right;
+                margin-right: 80px;
+                button{
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+}

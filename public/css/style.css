@@ -744,7 +744,7 @@ Primary Use: Beau Blog Listing
 article.type-post,
 article.beau-post-in-list {
   padding: 0;
-  margin-bottom: 100px;
+  /*margin-bottom: 100px;*/
 }
 article.type-post .beau-article-featured-wrapper,
 article.beau-post-in-list .beau-article-featured-wrapper {
@@ -2250,7 +2250,7 @@ Primary Use: Beau - All Shortcodes
 }
 article > .vc_row {
   padding-top: 50px;
-  padding-bottom: 50px;
+  /*padding-bottom: 50px*/
 }
 .vc_row {
   margin-bottom: 0 !important;

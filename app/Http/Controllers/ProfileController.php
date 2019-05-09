@@ -6,14 +6,12 @@ use App\Http\Requests\ProfileRequest;
 use App\Model\UserProfile;
 use App\Service\AddressService;
 use App\Service\ImgurService;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
     //
-    public function updateProfileUser(ProfileRequest $request)
+    public function updateProfileUser(ProfileRequest $request, AddressService $addressService)
     {
         $datas = $request->all();
         $user = Auth::user();
@@ -36,12 +34,14 @@ class ProfileController extends Controller
         $profile = $user->getProfileUser()->where('user_id', $user->id)->first();
         try {
             if ($profile == null) {
-
+                $city = $addressService->getCity($datas['city'])->name;
+                $district = $addressService->getDistrict($datas['district'])->name;
+                $ward = $addressService->getWard($datas['ward'])->name;
                 UserProfile::create([
                     'user_id' => $user->id,
                     'birth_day' => $datas['birthDay'],
                     'phone' => $datas['phone'],
-                    'address' => $datas['address'],
+                    'address' => $datas['address'] . ' - ' . $ward . ' - ' . $district . ' - ' . $city,
                     'facebook_link' => $datas['facebook'],
                     'github_link' => $datas['github']
 
@@ -50,10 +50,13 @@ class ProfileController extends Controller
                     'success' => 'Your profile has updated!'
                 ]);
             } else {
+                $city = $addressService->getCity($datas['city'])->name;
+                $district = $addressService->getDistrict($datas['district'])->name;
+                $ward = $addressService->getWard($datas['ward'])->name;
                 $profile->update([
                     'birth_day' => $datas['birthDay'],
                     'phone' => $datas['phone'],
-                    'address' => $datas['address'],
+                    'address' => $datas['address'] . ' - ' . $ward . ' - ' . $district . ' - ' . $city,
                     'facebook_link' => $datas['facebook'],
                     'github_link' => $datas['github']
 

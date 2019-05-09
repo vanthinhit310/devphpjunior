@@ -1,5 +1,6 @@
 <script>
-    var get_district_url = '{{route('test.get-district-profile')}}'
+    var get_district_url = '{{route('process.get-district-profile')}}';
+    var get_ward_url = '{{route('process.get-ward-profile')}}';
 </script>
 @extends('layouts.master')
 @section('content')

@@ -66,6 +66,11 @@ Route::group([
     //Update Profile
     Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile');
 
+    //Get district and ward.
+    Route::get('get-district-profile','AddressController@getDistrict')->name('get-district-profile');
+    Route::get('get-ward-profile','AddressController@getWards')->name('get-ward-profile');
+
+
 
 
 });
@@ -100,9 +105,6 @@ Route::group([
     Route::post('upload-image', 'DevTestController@uploadImage')->name('upload');
     Route::get('get-district', 'DevTestController@getDistrictBelongToCity');
     Route::get('get-ward', 'DevTestController@getWardOfDistrict');
-    //Get district and ward.
-    Route::get('get-district-profile','AddressController@getDistrict')->name('get-district-profile');
-    Route::get('get-ward-profile','AddressController@getWards')->name('get-ward-profile');
 
 });
 
