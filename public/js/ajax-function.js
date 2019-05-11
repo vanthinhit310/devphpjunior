@@ -76,13 +76,13 @@ var App_Image = {
                 enableExif: true,
                 enableOrientation: true,
                 viewport: { // Default { width: 100, height: 100, type: 'square' } 
-                    width: 250,
-                    height: 400,
-                    type: 'square' //square
+                    width: 200,
+                    height: 200,
+                    type: 'circle' //square
                 },
                 boundary: {
                     width: 300,
-                    height: 450
+                    height: 300
                 }
             });
             jQuery('#image_file').on('change', function () {
@@ -106,14 +106,14 @@ var App_Image = {
                         size: 'viewport'   // can custom size :{width: 400,
                                            // height: 600}
                     }).then(function (img) {
-                        html = '<img src="' + img + '" />';
-                        jQuery("#preview-crop-image").html(html);
                         jQuery.ajax({
                             url: uploadCropImage,
                             type: "POST",
                             data: {"image": img},
                             success: function (data) {
                                 if (typeof (data.error) !== 'undefined' && data.error === false) {
+                                    html = '<img src="' + data.imagePath + '" />';
+                                    jQuery("#preview-crop-image").html(html);
                                     Swal.fire({
                                         position: 'center',
                                         type: 'success',
@@ -158,7 +158,6 @@ var App_Image = {
                 if (Extension === "gif" || Extension === "png" || Extension === "jpeg" || Extension === "jpg") {
                     if (image.files && image.files[0]) {
                         var size = image.files[0].size;
-                        console.log(size);
                         if (size > 2048000) {
                             jQuery('.validate-notify').html("Image size should be smaller than 2048 byte");
                             return false;
