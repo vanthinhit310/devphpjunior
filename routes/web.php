@@ -31,10 +31,13 @@ Route::group([
     Route::get('/search-results', 'SearchController@getSearchResultPage')->name('searchPage');
     Route::get('/log-daily', 'PagesController@getListLogDailyPage')->name('logDailyPage')->middleware('auth');
     Route::get('log/{id?}', 'PagesController@getLogDetailsPage')->name('logDetail')->middleware('auth');
+    Route::get('crop-image','PagesController@getCropImagePages')->name('cropImage');
 });
 Route::group([
     'as' => 'practice.'
 ], function () {
+//    Crop image with croppiejs
+    Route::post('crop-image', 'UploadController@imageCrop')->name('cropImages');
 
 });
 

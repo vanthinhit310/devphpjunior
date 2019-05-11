@@ -2,7 +2,7 @@
     <div class="container">
         <h3 class="title"> Comment</h3>
         <form action="" method="get">
-            <div class="comment">
+            <div class="comment col-sm-9 col-md-9 col-lg-9 col-xs-9">
                 <div class="top-content">
                     <a href="javascript:;">Write</a>
                     <hr>

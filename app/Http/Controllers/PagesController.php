@@ -110,4 +110,11 @@ class PagesController extends Controller
         $param['cities'] = $address->getAllCities();
         return view('users.profile', $param);
     }
+
+    public function getCropImagePages()
+    {
+        $param = [];
+        $param['titlePage'] = 'Crop image with Crop-pic';
+        return view('practices.crop_image',$param);
+    }
 }

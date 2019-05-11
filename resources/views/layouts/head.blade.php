@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="{{asset('css/swiper.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/sweetalert2.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/croppie.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/aos.css')}}"/>
 <link rel="stylesheet" href="{{asset('css/animate.css')}}"/>

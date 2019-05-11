@@ -9,6 +9,7 @@
 <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('js/swiper.min.js')}}"></script>
 <script src="{{asset('js/sweetalert2.js')}}"></script>
+<script src="{{asset('js/croppie.js')}}"></script>
 <script src="{{asset('js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('js/jquery.mCustomScrollbar.min.js')}}"></script>
 <script src="{{asset('js/aos.js')}}"></script>

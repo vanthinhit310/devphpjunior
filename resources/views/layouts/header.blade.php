@@ -51,7 +51,7 @@
 
             <div class="nav-wrapper">
                 <div id="main-menu-wrapper" class="main-menu">
-                    @if(\Illuminate\Support\Facades\Auth::check())
+                    @auth
                         <ul id="menu-main-menu-1" class="menu">
                             <li class="menu-item current-menu-item menu-item-has-children current_page_item"><a
                                     href="{{route('app.home')}}">Home.<span class="caret"></span></a></li>
@@ -69,6 +69,12 @@
                                                         class="fal fa-blog"></i> Create</a></li>
                                             <li class="menu-item"><a href="{{route('app.logDailyPage')}}"><i
                                                         class="fal fa-clipboard-list-check"></i> List</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Image
+                                            <i class="fal fa-caret-right"></i></a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item"><a href="{{route('app.cropImage')}}">Crop image</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -91,7 +97,9 @@
                                             Change password</a></li>
                                 </ul>
                             </li>
-                            <div class="header-avatar"><a href="{{route('app.profile')}}\{{\Illuminate\Support\Facades\Auth::user()->id}}"><img class="img-fluid" src="{{Auth::user()->avatar}}" alt=""></a></div>
+                            <div class="header-avatar"><a
+                                    href="{{route('app.profile')}}\{{\Illuminate\Support\Facades\Auth::user()->id}}"><img
+                                        class="img-fluid" src="{{Auth::user()->avatar}}" alt=""></a></div>
                         </ul>
                     @else
                         <ul id="menu-main-menu-1" class="menu">
@@ -103,13 +111,10 @@
                                 <a
                                     href="javascript:;">Project.<span class="caret"></span></a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project
+                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Image
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
-                                            <li class="menu-item"><a href="javascript:;">Project 2</a></li>
+                                            <li class="menu-item"><a href="{{route('app.cropImage')}}">Crop image</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -134,7 +139,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    @endif
+                    @endauth
                 </div>
             </div>
         </nav>

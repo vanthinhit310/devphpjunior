@@ -1,0 +1,12 @@
+.crop-image-wrapper{
+    .container{
+        .main-content{
+            #crop-image {
+                width: 200px;
+                height: 150px;
+                position:relative; /* or fixed or absolute */
+            }
+
+        }
+    }
+}
