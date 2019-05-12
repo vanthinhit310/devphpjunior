@@ -178,10 +178,11 @@ var App_Image = {
 
 jQuery(document).ready(function () {
     App_Image.imageCroppieJS();
+
+    Address.getListDistrictProfile();
+    Address.getListWardProfile();
 });
 
 window.onload = function () {
-    Address.getListDistrictProfile();
-    Address.getListWardProfile();
 
 };

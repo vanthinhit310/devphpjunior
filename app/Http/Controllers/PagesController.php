@@ -6,8 +6,6 @@ use App\Service\AboutService;
 use App\Service\AddressService;
 use App\Service\DailyLogService;
 use App\Service\FavoriteService;
-use App\Service\GareliesServie;
-use App\Service\KeyService;
 use App\Service\PostService;
 use App\Service\UserService;
 use Carbon\Carbon;
@@ -52,6 +50,8 @@ class PagesController extends Controller
         $this->data['topViews'] = $postService->getListTopViews();
         $this->data['themePosts'] = $postService->getThemeOfPost();
         $this->data['titlePage'] = $post->title;
+        $this->data['comments'] = $postService->getCommentOfPost($post->id);
+        $this->data['count_comment'] = count($this->data['comments']);
         return view('post-details.index', $this->data);
     }
 
@@ -76,7 +76,7 @@ class PagesController extends Controller
     public function getCreateLogPage()
     {
         $currentTime = Carbon::now();
-        $this->data['titlePage'] = 'Log #'.$currentTime->format('d.m.Y');
+        $this->data['titlePage'] = 'Log #' . $currentTime->format('d.m.Y');
         $this->data['day'] = $currentTime->format('d/m/Y');
         return view('log-daily.index-create-log', $this->data);
     }
@@ -95,7 +95,7 @@ class PagesController extends Controller
             $this->data['titlePage'] = 'Log number #' . $details->id;
             $this->data['details'] = $details;
             return view('log-daily.log-detail', $this->data);
-        }else{
+        } else {
             return redirect()->back()->with([
                 'error' => 'Not found! We can\'t find any log with this id.'
             ]);
@@ -105,7 +105,7 @@ class PagesController extends Controller
     public function getProfilePages(UserService $service, AddressService $address)
     {
         $param = [];
-        $param['titlePage'] = 'Profile/'.Auth::user()->name;
+        $param['titlePage'] = 'Profile/' . Auth::user()->name;
         $param['profile'] = $service->getProfileUser();
         $param['cities'] = $address->getAllCities();
         return view('users.profile', $param);
@@ -115,6 +115,6 @@ class PagesController extends Controller
     {
         $param = [];
         $param['titlePage'] = 'Crop image with Crop-pic';
-        return view('practices.crop_image',$param);
+        return view('practices.crop_image', $param);
     }
 }

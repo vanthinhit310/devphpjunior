@@ -120,7 +120,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item"><a href="{{route('app.contacts')}}">Contact.</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children">
+                            <li class="menu-item menu-item-has-children">
                                 <a
                                     href="javascript:;"><i class="fal fa-user-secret"></i>
                                 </a>

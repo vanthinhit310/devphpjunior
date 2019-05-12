@@ -67,7 +67,7 @@ var Loading = {
         if (jQuery('.loading').length) {
             setTimeout(function () {
                 jQuery('.loading').fadeOut();
-            }, 2000);
+            }, 1000);
         }
     },
     showLoadingSVG: function () {
@@ -430,6 +430,17 @@ var Custom = {
                 });
             });
         }
+    },
+    showInputComment: function () {
+        if (jQuery('.comment-pages-wrapper').length) {
+            jQuery('.reply').each(function () {
+                jQuery(this).on('click', function () {
+                    jQuery(this).find("[class='comment-sub']").attr('id', 'comment-active');
+                    jQuery('.comment-sub#comment-active').show();
+                });
+            });
+
+        }
     }
 
 };
@@ -480,7 +491,9 @@ jQuery(document).ready(function () {
     Custom.getHTLMTag();
     Custom.scrollToTopPage();
     Custom.loadMoreDataAjax();
+    Custom.showInputComment();
 
     CKEditor.getEditorLogPage();
+
 
 });

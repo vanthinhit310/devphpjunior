@@ -73,6 +73,9 @@ Route::group([
     Route::get('get-district-profile','AddressController@getDistrict')->name('get-district-profile');
     Route::get('get-ward-profile','AddressController@getWards')->name('get-ward-profile');
 
+    //Add comment
+    Route::post('add-comment','PostController@addComment')->name('addComment');
+
 
 
 

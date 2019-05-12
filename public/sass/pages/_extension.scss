@@ -10,16 +10,13 @@
             svg, i {
                 font-size: 15px;
                 color: black;
-                position: absolute;
-                top: 20px;
-                right: -31px;
-                transform: translate(-40%, -55%);
+                transform: translate(5px, 1px);
             }
         }
         .extension {
             margin: 10px 0;
-            width: 40px;
-            height: 40px;
+            width: 25px;
+            height: 25px;
             border: solid 1px transparent;
             border-radius: 50%;
             background-color: #f6f6f6;
@@ -30,13 +27,5 @@
                 }
             }
         }
-        .scroll-to-top {
-            svg, i {
-                position: absolute;
-                top: 20px;
-                right: -29px;
-            }
-        }
-
     }
 }

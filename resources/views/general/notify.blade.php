@@ -32,5 +32,26 @@
 @if(session('error_update_password'))
     <script>swal('Error!', '{{session('error_update_password')}}', 'error');</script>
 @endif
-
+@if(session('messageStatus') && session('error') == false)
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: '{{session('messageStatus')}}',
+            showConfirmButton: false,
+            timer: 800
+        });
+    </script>
+@endif
+@if(session('messageStatus') && session('error') == true)
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            type: 'error',
+            title: '{{session('messageStatus')}}',
+            showConfirmButton: false,
+            timer: 800
+        });
+    </script>
+@endif
 

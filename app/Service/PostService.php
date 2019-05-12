@@ -10,6 +10,7 @@ namespace App\Service;
 
 
 use App\Model\BlogPost;
+use App\Model\Comment;
 use App\Model\PostCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -61,8 +62,34 @@ class PostService
         $topViews = BlogPost::orderBy('view', 'desc')->take(6)->get();
         return $topViews;
     }
-    public function getThemeOfPost(){
+
+    public function getThemeOfPost()
+    {
         $themePosts = PostCategory::all();
         return $themePosts;
+    }
+
+    public function addComment($datas)
+    {
+        if (isset($datas) && $datas != null):
+            DB::beginTransaction();
+            $comment = Comment::create([
+                'name' => $datas['name'],
+                'email' => $datas['email'],
+                'comment' => $datas['comment'],
+                'accept' => $datas['accept'],
+                'id_post' => $datas['id_post'],
+                'user_id' => $datas['user_id'],
+                'data_type' => $datas['data_type']
+            ]);
+            DB::commit();
+        endif;
+        return $comment;
+    }
+
+    public function getCommentOfPost($idPost)
+    {
+        $comments = Comment::where('id_post',$idPost)->get();
+        return $comments;
     }
 }
