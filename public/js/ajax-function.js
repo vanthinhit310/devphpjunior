@@ -175,9 +175,52 @@ var App_Image = {
         }
     }
 };
-
+var App_Comment = {
+    addSubComment: function () {
+        if (jQuery('.comment-sub').length) {
+            jQuery('.add-sub-comment').on('click', function () {
+                jQuery.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: add_sub_comment_url,
+                    data: {
+                        id_parent: jQuery('#id_comment_parent').val(),
+                        id_post: jQuery('#id_post').val(),
+                        comment: jQuery('.commentSub').val()
+                    },
+                    method: "POST",
+                    success: function (response) {
+                        jQuery('.commentSub').val('');
+                        if (typeof (response.error) !== 'undefined' && response.error === false) {
+                            Swal.fire({
+                                position: 'center',
+                                type: 'success',
+                                title: response.messageComment,
+                                showConfirmButton: false,
+                                timer: 800
+                            });
+                        }
+                    },
+                    error: function (response) {
+                        if (typeof (response.error) !== 'undefined' && response.error === true) {
+                            Swal.fire({
+                                position: 'center',
+                                type: 'error',
+                                title: response.messageComment,
+                                showConfirmButton: false,
+                                timer: 800
+                            });
+                        }
+                    }
+                });
+            });
+        }
+    }
+};
 jQuery(document).ready(function () {
     App_Image.imageCroppieJS();
+    App_Comment.addSubComment();
 
     Address.getListDistrictProfile();
     Address.getListWardProfile();

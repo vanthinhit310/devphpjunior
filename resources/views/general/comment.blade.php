@@ -1,4 +1,7 @@
 @auth
+    <script>
+        var add_sub_comment_url = '{{route('process.addSubComment')}}'
+    </script>
     <section class="comment-pages-wrapper">
         <div class="container">
             <div class="comment-display">
@@ -8,7 +11,6 @@
                 @if(isset($comments) && $comments != null)
                     @foreach($comments as $comment)
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 comment-body">
-
                             <div class="row each-comment">
                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                     <img src="{{asset($comment->getUserComment->avatar)}}" class="img-fluid"
@@ -21,44 +23,41 @@
                                     <p class="comment-text fs-16">
                                         {!! $comment->comment !!}
                                     </p>
-                                    <a href="javascript:;">
-                                        <div class="reply">
-                                            <i class="fal fa-reply-all"></i> Reply
-                                        </div>
-                                    </a>
                                 </div>
                             </div>
 
                             <div class="chil-comment">
                                 <div class="row">
-                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                        <img src="{{asset(\Illuminate\Support\Facades\Auth::user()->avatar)}}"
-                                             class="img-fluid"
-                                             alt="Avatar">
-                                    </div>
-                                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                        <strong class="name-user">Le Van Thinh</strong> <span>50 days ago</span>
-                                        <p class="comment-text fs-16">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien.
-                                        </p>
-                                    </div>
+                                    {{--<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">--}}
+                                        {{--<img src="{{asset(\Illuminate\Support\Facades\Auth::user()->avatar)}}"--}}
+                                             {{--class="img-fluid"--}}
+                                             {{--alt="Avatar">--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">--}}
+                                        {{--<strong class="name-user">Le Van Thinh</strong> <span>50 days ago</span>--}}
+                                        {{--<p class="comment-text fs-16">--}}
+                                            {{--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sapien.--}}
+                                        {{--</p>--}}
+                                    {{--</div>--}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                        <span><i class="fal fa-reply-all"></i> Reply</span>
+                                    </div>
                                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                                         <div class="comment-sub">
                                             <div class="sub-content">
                                                 <form action="" method="post">
                                                     @csrf
-                                                    <input type="hidden" name="id_comment_parent"
-                                                           value="{{$comment->id}}">
+                                                    <input type="hidden" id="id_comment_parent" value="{{$comment->id}}">
+                                                    <input type="hidden" id="id_post" value="{{$comment->id_post}}">
                                                     <div class="comment-content">
-                                                        <textarea name="comment" id="commentPost" rows="1"></textarea>
+                                                        <textarea name="commentSub"  id="commentSub" class="commentSub" rows="1"></textarea>
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="publish-comment">
-                                                <button type="submit"><i class="fal fa-paper-plane"></i></button>
+                                                <button type="button" class="add-sub-comment"><i class="fal fa-paper-plane"></i></button>
                                             </div>
                                         </div>
                                     </div>

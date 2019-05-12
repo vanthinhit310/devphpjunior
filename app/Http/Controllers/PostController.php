@@ -41,7 +41,6 @@ class PostController extends Controller
                 ]);
             }
         } catch (\Throwable $throwable) {
-            dd($throwable->getMessage());
             DB::rollBack();
             return redirect()->back()->with([
                 'error' => true,
@@ -51,7 +50,7 @@ class PostController extends Controller
         }
     }
 
-    public function addChilComment(Request $request, PostService $postService)
+    public function addSubComment(Request $request, PostService $postService)
     {
         $user = Auth::user();
         $datas = [
@@ -59,10 +58,32 @@ class PostController extends Controller
             'email' => $user->email,
             'comment' => $request->input('comment'),
             'accept' => 1,
-            'id_comment_parent' => '',
-            'id_post' => $request->input('postID'),
+            'id_comment_parent' => $request->input('id_parent'),
+            'id_post' => $request->input('id_post'),
             'user_id' => $user->id,
             'data_type' => 'App\\Model\\BlogPost'
         ];
+        try {
+            if (isset($datas) && $datas != null) {
+                $postService->addSubComment($datas);
+                return response()->json([
+                    'error' => false,
+                    'messageComment' => 'Comment has posted'
+                ])->setStatusCode(\Illuminate\Http\Response::HTTP_OK);
+            } else {
+                return response()->json([
+                    'error' => true,
+                    'messageComment' => 'An error occurred. Comment can\'t posted'
+                ])->setStatusCode(\Illuminate\Http\Response::HTTP_BAD_REQUEST);
+            }
+        } catch (\Throwable $throwable) {
+            dd($throwable->getMessage());
+            DB::rollBack();
+            return response()->json([
+                'error' => true,
+                'messageComment' => 'Unknown error',
+                'errorMessage' => $throwable->getMessage()
+            ])->setStatusCode(\Illuminate\Http\Response::HTTP_BAD_REQUEST);
+        }
     }
 }

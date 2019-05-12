@@ -89,7 +89,26 @@ class PostService
 
     public function getCommentOfPost($idPost)
     {
-        $comments = Comment::where('id_post',$idPost)->get();
+        $comments = Comment::where('id_post', $idPost)->get();
         return $comments;
+    }
+
+    public function addSubComment($datas)
+    {
+        if (isset($datas) && $datas != null):
+            DB::beginTransaction();
+            $subComment = Comment::create([
+                'name' => $datas['name'],
+                'email' => $datas['email'],
+                'comment' => $datas['comment'],
+                'accept' => $datas['accept'],
+                'id_comment_parent' => $datas['id_comment_parent'],
+                'id_post' => $datas['id_post'],
+                'user_id' => $datas['user_id'],
+                'data_type' => $datas['data_type']
+            ]);
+            DB::commit();
+            return $subComment;
+        endif;
     }
 }

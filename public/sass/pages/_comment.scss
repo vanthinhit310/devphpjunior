@@ -59,32 +59,35 @@
                     line-height: 20px;
                     padding: 5px;
                 }
-                a {
-                    .reply {
-                        color: green;
-                        margin-top: -25px;
-                    }
+                span {
+                    color: green;
                 }
-
                 .comment-sub {
-                    display: none;
                     .sub-content {
                         form {
                             .comment-content {
                                 textarea {
                                     width: 100%;
                                     border: solid 1px #e8e1e1;
+                                    height: 40px;
+                                    padding: 3px;
+                                    margin-bottom: 10px;
                                 }
                             }
                         }
                     }
                     .publish-comment {
+                        position: relative;
                         text-align: right;
                         button {
                             margin: 7px;
                             width: 10%;
                             padding: 4px;
                             border-radius: 3px;
+                            position: absolute;
+                            bottom: 3px;
+                            right: -6px;
+                            height: 40px;
                         }
                     }
                 }
