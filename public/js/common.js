@@ -360,24 +360,27 @@ var Form = {
 };
 var SwiperSlide = {
     swiperMTPage: function () {
-        var mySwiper = new Swiper('.swiper-container', {
-            loop: true,
-            speed: 30,
-            autoHeight: true,
-            slidesPerView: 1,
-            spaceBetween: 10,
-            effect: 'fade',
-            pagination: {
-                el: '.swiper-pagination',
-                type: 'progressbar',
-            },
-            autoplay: {
-                delay: 1000
-            }, fadeEffect: {
-                crossFade: true
-            }
-        });
-
+        if (jQuery('.wife-wrapper').length){
+            var swiper = new Swiper('.swiper-container', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                loop: true,
+                autoplay: {delay: 1500},
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows : true,
+                },
+                pagination: {
+                    el: '.wife-wrapper .swiper-pagination',
+                    type:'progressbar'
+                },
+            });
+        }
     }
 };
 var Tooltip = {
@@ -482,6 +485,8 @@ jQuery(document).ready(function () {
     Custom.loadMoreDataAjax();
 
     CKEditor.getEditorLogPage();
+
+    SwiperSlide.swiperMTPage();
 
 
 });

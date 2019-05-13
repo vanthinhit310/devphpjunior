@@ -33,6 +33,7 @@ Route::group([
     Route::get('/log-daily', 'PagesController@getListLogDailyPage')->name('logDailyPage')->middleware('auth');
     Route::get('log/{id?}', 'PagesController@getLogDetailsPage')->name('logDetail')->middleware('auth');
     Route::get('crop-image','PagesController@getCropImagePages')->name('cropImage');
+    Route::get('wife','PagesController@getWifePage')->name('wife');
 });
 Route::group([
     'as' => 'practice.'
@@ -67,8 +68,10 @@ Route::group([
     Route::get('process_search', 'SearchController@create')->name('search');
     //Create new Log
     Route::post('process_create_new_log', 'DailyLogController@create')->name('storeLog');
+
     //Load data from DB with  Ajax
     Route::post('load-data-logs', 'DailyLogController@loadDataAjax')->middleware('auth');
+
     //Update Profile
     Route::post('update-profile', 'ProfileController@updateProfileUser')->name('updateProfile');
 
@@ -80,8 +83,8 @@ Route::group([
     Route::post('add-comment','PostController@addComment')->name('addComment');
     Route::post('add-sub-comment','PostController@addSubComment')->name('addSubComment');
 
-
-
+    //Load more image with Ajax
+    Route::post('load-wife-image', 'WifeController@getMoreWifeImage')->name('loadWifeImage');
 
 });
 

@@ -76,6 +76,7 @@
                                         <ul class="sub-menu">
                                             <li class="menu-item"><a href="{{route('app.cropImage')}}">Crop image</a></li>
                                             <li class="menu-item"><a href="{{route('practice.qrCode')}}">QRCode</a></li>
+                                            <li class="menu-item"><a href="{{route('app.wife')}}">Wife</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -117,6 +118,7 @@
                                         <ul class="sub-menu">
                                             <li class="menu-item"><a href="{{route('app.cropImage')}}">Crop image</a></li>
                                             <li class="menu-item"><a href="{{route('practice.qrCode')}}">QRCode</a></li>
+                                            <li class="menu-item"><a href="{{route('app.wife')}}">Wife</a></li>
                                         </ul>
                                     </li>
                                 </ul>

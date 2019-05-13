@@ -33,4 +33,10 @@ class GareliesServie
         }
         return $garellies;
     }
+
+    public function getGalleryAjax()
+    {
+        $galleries = Garellies::orderBy('created_at','DESC')->limit(6)->get();
+        return $galleries;
+    }
 }

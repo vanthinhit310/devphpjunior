@@ -6,6 +6,7 @@ use App\Service\AboutService;
 use App\Service\AddressService;
 use App\Service\DailyLogService;
 use App\Service\FavoriteService;
+use App\Service\GareliesServie;
 use App\Service\PostService;
 use App\Service\UserService;
 use Carbon\Carbon;
@@ -116,5 +117,14 @@ class PagesController extends Controller
         $param = [];
         $param['titlePage'] = 'Crop image with Crop-pic';
         return view('practices.crop_image', $param);
+    }
+
+    public function getWifePage(GareliesServie $gareliesServie)
+    {
+        $param = [];
+        $param['titlePage'] = 'Wife';
+        $param ['garellies'] = $gareliesServie->getGarellies() ;
+        $param ['galleries'] = $gareliesServie->getGalleryAjax() ;
+        return view('practices.wife', $param);
     }
 }

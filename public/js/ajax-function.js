@@ -140,8 +140,8 @@ var App_Image = {
             });
         }
     },
-/**
- * Cut Slider for wife*/
+    /**
+     * Cut Slider for wife*/
     wifeImageCrop: function () {
         if (jQuery('.crop-image-wrapper').length) {
             jQuery.ajaxSetup({
@@ -267,7 +267,7 @@ var App_Image = {
                 if (Extension === "gif" || Extension === "png" || Extension === "jpeg" || Extension === "jpg") {
                     if (image.files && image.files[0]) {
                         var size = image.files[0].size;
-                        if (size > 2048000) {
+                        if (size > 6000000) {
                             jQuery('.wife-validate-notify').html("Image size should be smaller than 2048 byte");
                             return false;
                         }
@@ -327,7 +327,34 @@ var App_Comment = {
         }
     }
 };
-
+var Paginate = {
+    wifePage: function () {
+        if (jQuery('.wife-wrapper').length) {
+            jQuery('#wife-load-more').on('click', function () {
+                var id = jQuery(this).data('id');
+                jQuery("#wife-load-more").html("Loading....");
+                jQuery.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: get_more_wife_image,
+                    method: "POST",
+                    data: {id: id},
+                    dataType: "text",
+                    success: function (data) {
+                        if (data !== '') {
+                            jQuery('#wife-remove').remove();
+                            jQuery('#data-zone').append(data);
+                        }
+                        else {
+                            jQuery('#wife-load-more').html("No Data");
+                        }
+                    }
+                });
+            });
+        }
+    }
+};
 jQuery(document).ready(function () {
     App_Image.imageCroppieJS();
     App_Image.wifeImageCrop();
@@ -335,6 +362,8 @@ jQuery(document).ready(function () {
 
     Address.getListDistrictProfile();
     Address.getListWardProfile();
+
+    Paginate.wifePage();
 });
 
 window.onload = function () {
