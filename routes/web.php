@@ -38,7 +38,8 @@ Route::group([
 ], function () {
 //    Crop image with croppiejs
     Route::post('crop-image', 'UploadController@imageCrop')->name('cropImages');
-
+//    QRCode
+    Route::get('/qr-code', 'QrCodeController@getQrCode')->name('qrCode');
 });
 
 Route::group([

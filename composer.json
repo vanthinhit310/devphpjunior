@@ -26,6 +26,7 @@
         "laravel/tinker": "^1.0",
         "maatwebsite/excel": "~2.1.0",
         "rtconner/laravel-tagging": "~2.0",
+        "simplesoftwareio/simple-qrcode": "^2.0",
         "tcg/voyager": "^1.2",
         "wapnen/google-cloud-vision-php": "dev-master"
     },

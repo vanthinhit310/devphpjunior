@@ -71,10 +71,11 @@
                                                         class="fal fa-clipboard-list-check"></i> List</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Image
+                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Project
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
                                             <li class="menu-item"><a href="{{route('app.cropImage')}}">Crop image</a></li>
+                                            <li class="menu-item"><a href="{{route('practice.qrCode')}}">QRCode</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -111,10 +112,11 @@
                                 <a
                                     href="javascript:;">Project.<span class="caret"></span></a>
                                 <ul class="sub-menu">
-                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Image
+                                    <li class="menu-item"><a href="javascript:;"><span class='resp-nav-gap'></span>Practices
                                             <i class="fal fa-caret-right"></i></a>
                                         <ul class="sub-menu">
                                             <li class="menu-item"><a href="{{route('app.cropImage')}}">Crop image</a></li>
+                                            <li class="menu-item"><a href="{{route('practice.qrCode')}}">QRCode</a></li>
                                         </ul>
                                     </li>
                                 </ul>
