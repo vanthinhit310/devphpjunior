@@ -39,7 +39,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        if ($exception instanceof \Throwable) {
+        if ($exception instanceof Exception) {
             $mytime = Carbon::now();
             $text = "<b>Time:</b>" . $mytime . "\n" . "<b>Error: </b>" . $exception->getMessage();
 

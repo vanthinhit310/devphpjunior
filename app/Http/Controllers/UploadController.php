@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Service\ImgurService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class UploadController extends Controller
@@ -36,15 +37,22 @@ class UploadController extends Controller
                 $image_name = time() . '_' . rand(100, 999) . '.png';
                 $path = public_path('uploads/' . $image_name);
                 file_put_contents($path, $image_file);
+                //Merge image with new image
                 $image = Image::make($path);
                 $frame = Image::make('images/frame.png');
                 $imgFinal = $image->insert($frame, 'top-left', 0, 0);
                 $imgFinal->save(public_path('uploads/' . $image_name), 100);
                 $uploadedPath = 'uploads/'.$image_name;
+//                upload to IMGUR
+                $imageUrl = ImgurService::uploadImage($uploadedPath);
+                //Delete Image after upload to Imgur
+                if(File::exists($uploadedPath)) {
+                    File::delete($uploadedPath);
+                }
                 return response()->json([
                     'error' => false,
                     'message' => 'Photos uploaded successfully',
-                    'imagePath' => $uploadedPath
+                    'imagePath' => $imageUrl
                 ])->setStatusCode(Response::HTTP_OK);
             } else {
                 return response()->json([

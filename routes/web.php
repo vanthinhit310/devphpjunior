@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use TCG\Voyager\Facades\Voyager;
 
 /*
@@ -116,9 +117,6 @@ Route::group([
 
 });
 
-//
-
-
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
@@ -128,3 +126,4 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('exportListLogs', "Admin\\AdminController@exportListLogs")->name("exportListLogs");
     });
 });
+
