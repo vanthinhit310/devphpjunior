@@ -140,6 +140,86 @@ var App_Image = {
             });
         }
     },
+/**
+ * Cut Slider for wife*/
+    wifeImageCrop: function () {
+        if (jQuery('.crop-image-wrapper').length) {
+            jQuery.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var resize = jQuery('#wife-upload-demo').croppie({
+                enableExif: true,
+                enableOrientation: true,
+                viewport: { // Default { width: 100, height: 100, type: 'square' }
+                    width: 300,
+                    height: 450,
+                    type: 'square' //square circle
+                },
+                boundary: {
+                    width: 350,
+                    height: 500
+                }
+            });
+            jQuery('#wife_image_file').on('change', function () {
+                jQuery('.wife-validate-notify').html('');
+                if (App_Image.wifeValidateImage()) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        resize.croppie('bind', {
+                            url: e.target.result
+                        }).then(function () {
+                            console.log('jQuery bind complete');
+                        });
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            jQuery('.wife-upload-image').on('click', function (ev) {
+                if (App_Image.wifeValidateImage()) {
+                    jQuery('#wife-loading').show();
+                    resize.croppie('result', {
+                        type: 'canvas',
+                        size: 'viewport'   // can custom size :{width: 400,
+                                           // height: 600}
+                    }).then(function (img) {
+                        jQuery.ajax({
+                            url: uploadWifeImage,
+                            type: "POST",
+                            data: {"wifeImage": img},
+                            success: function (data) {
+                                if (typeof (data.error) !== 'undefined' && data.error === false) {
+                                    jQuery('#wife-loading').hide();
+                                    html = '<img src="' + data.imagePath + '" />';
+                                    jQuery("#preview-wife-crop-image").html(html);
+                                    Swal.fire({
+                                        position: 'center',
+                                        type: 'success',
+                                        title: data.message,
+                                        showConfirmButton: false,
+                                        timer: 800
+                                    });
+                                }
+                            },
+                            error: function (data) {
+                                if (typeof (data.error) !== 'undefined' && data.error === true) {
+                                    jQuery('#wife-loading').hide();
+                                    Swal.fire({
+                                        position: 'center',
+                                        type: 'error',
+                                        title: data.message,
+                                        showConfirmButton: false,
+                                        timer: 800
+                                    });
+                                }
+                            }
+                        });
+                    });
+                }
+            });
+        }
+    },
 
     /**
      * Validate image before upload to server. Include size of image and
@@ -169,6 +249,35 @@ var App_Image = {
                 }
                 else {
                     jQuery('.validate-notify').html("Photo only allows file types of GIF, PNG, JPG, JPEG. ");
+                    return false;
+                }
+            }
+        }
+    },
+    wifeValidateImage: function () {
+        if (jQuery('.crop-image-wrapper').length) {
+            var image = document.getElementById('wife_image_file');
+            var imageUploadPath = image.value;
+            if (imageUploadPath === '') {
+                jQuery('.wife-validate-notify').html("Please upload an image");
+                return false;
+            }
+            else {
+                var Extension = imageUploadPath.substring(imageUploadPath.lastIndexOf('.') + 1).toLowerCase();
+                if (Extension === "gif" || Extension === "png" || Extension === "jpeg" || Extension === "jpg") {
+                    if (image.files && image.files[0]) {
+                        var size = image.files[0].size;
+                        if (size > 2048000) {
+                            jQuery('.wife-validate-notify').html("Image size should be smaller than 2048 byte");
+                            return false;
+                        }
+                        else {
+                            return true;
+                        }
+                    }
+                }
+                else {
+                    jQuery('.wife-validate-notify').html("Photo only allows file types of GIF, PNG, JPG, JPEG. ");
                     return false;
                 }
             }
@@ -218,8 +327,10 @@ var App_Comment = {
         }
     }
 };
+
 jQuery(document).ready(function () {
     App_Image.imageCroppieJS();
+    App_Image.wifeImageCrop();
     App_Comment.addSubComment();
 
     Address.getListDistrictProfile();
