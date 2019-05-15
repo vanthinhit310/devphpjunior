@@ -1,6 +1,4 @@
-<script>
-    var get_more_wife_image = '{{route('process.loadWifeImage')}}';
-</script>
+
 @extends('layouts.master')
 @section('content')
     <section class="wife-wrapper">
@@ -10,12 +8,12 @@
                 <div class="swiper-container wife">
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
-                    @if(isset($garellies) && $garellies != null)
+                    @if(isset($galleries) && $galleries != null)
                         <!-- Slides -->
-                            @foreach($garellies as $garellie)
+                            @foreach($galleries as $g)
                                 {{--<div class="swiper-slide"><img src="{{asset($garellie->link)}}" alt="Wife"></div>--}}
                                 <div class="swiper-slide wife-slide"
-                                     style="background-image:url({{asset($garellie->link)}})"></div>
+                                     style="background-image:url({{asset($g->link)}})"></div>
                             @endforeach
                         @endif
                     </div>
@@ -34,11 +32,6 @@
                     @endforeach
                 @endif
             </div>
-            @if(isset($gallery))
-                <div class="load-more" id="wife-remove">
-                    <button id="wife-load-more" data-id="{{$gallery->id}}">Load more</button>
-                </div>
-            @endif
         </div>
     </section>
 @endsection

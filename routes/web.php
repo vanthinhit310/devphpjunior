@@ -83,8 +83,6 @@ Route::group([
     Route::post('add-comment','PostController@addComment')->name('addComment');
     Route::post('add-sub-comment','PostController@addSubComment')->name('addSubComment');
 
-    //Load more image with Ajax
-    Route::post('load-wife-image', 'WifeController@getMoreWifeImage')->name('loadWifeImage');
 
 });
 

@@ -327,34 +327,7 @@ var App_Comment = {
         }
     }
 };
-var Paginate = {
-    wifePage: function () {
-        if (jQuery('.wife-wrapper').length) {
-            jQuery('#wife-load-more').on('click', function () {
-                var id = jQuery(this).data('id');
-                jQuery("#wife-load-more").html("Loading....");
-                jQuery.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    url: get_more_wife_image,
-                    method: "POST",
-                    data: {id: id},
-                    dataType: "text",
-                    success: function (data) {
-                        if (data !== '') {
-                            jQuery('#wife-remove').remove();
-                            jQuery('#data-zone').append(data);
-                        }
-                        else {
-                            jQuery('#wife-load-more').html("No Data");
-                        }
-                    }
-                });
-            });
-        }
-    }
-};
+
 jQuery(document).ready(function () {
     App_Image.imageCroppieJS();
     App_Image.wifeImageCrop();
@@ -363,7 +336,6 @@ jQuery(document).ready(function () {
     Address.getListDistrictProfile();
     Address.getListWardProfile();
 
-    Paginate.wifePage();
 });
 
 window.onload = function () {

@@ -123,8 +123,7 @@ class PagesController extends Controller
     {
         $param = [];
         $param['titlePage'] = 'Wife';
-        $param ['garellies'] = $gareliesServie->getGarellies() ;
-        $param ['galleries'] = $gareliesServie->getGalleryAjax() ;
+        $param ['galleries'] = $gareliesServie->getGarellies() ;
         return view('practices.wife', $param);
     }
 }
